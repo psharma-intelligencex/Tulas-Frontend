@@ -70,7 +70,7 @@ const HomeBlogs = () => {
         </div>
 
         {blogs.length === 0 ? (
-          <p className={stateMsg}>No blogs to show right now.</p>
+          <p className={stateMsg}>No blogs available.</p>
         ) : (
           <>
             <div className={blogsGrid}>
