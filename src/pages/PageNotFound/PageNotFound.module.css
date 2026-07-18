@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
+
+.pageNotFound {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--bgDark);
+  color: var(--textDark);
+  font-weight: 500;
+  font-family: "Rajdhani", sans-serif;
+}
+
+.innerContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  /* Match the site's dark theme (same background as the Team and
+     Committees pages) instead of the old light panel. */
+  background-color: #0a0a0f;
+  color: var(--textLight);
+  padding: 5rem 2rem;
+  width: 100%;
+  min-height: 60dvh;
+  margin-top: 6rem;
+}
+
+.heading {
+  font-size: max(100px, 10dvw);
+  /* Rendered as an <h1>; neutralise the UA heading defaults (bold weight and
+     top margin) so the div-to-h1 change keeps the exact same appearance. */
+  font-weight: inherit;
+  margin-top: 0;
+  margin-bottom: -2.5dvw;
+}
+.subHeading {
+  font-size: max(25px, 2.5dvw);
+  /* Rendered as an <h2>; neutralise the UA heading defaults (bold weight and
+     margins) so the div-to-h2 change keeps the exact same appearance. */
+  font-weight: inherit;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .innerContent {
+    padding: 4rem 1.5rem;
+    margin-top: 5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .innerContent {
+    padding: 3rem 1rem;
+    margin-top: 4.5rem;
+  }
+
+  .heading {
+    font-size: max(72px, 18dvw);
+    margin-bottom: -1.5dvw;
+  }
+
+  .subHeading {
+    font-size: max(20px, 6dvw);
+  }
+}

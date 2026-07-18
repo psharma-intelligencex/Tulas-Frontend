@@ -1,0 +1,430 @@
+/* ============================ HERO ============================ */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4.5rem 1.5rem 1.5rem;
+  overflow: hidden;
+  /* Layers (top -> bottom): dark readability scrim, the hero background photo,
+     solid base colour. Colored glows removed. */
+  background:
+    linear-gradient(
+      180deg,
+      rgba(4, 6, 12, 0.9) 0%,
+      rgba(4, 6, 12, 0.78) 42%,
+      rgba(4, 6, 12, 0.93) 100%
+    ),
+    url("/img/hero/hero-bg.jpg") center / cover no-repeat,
+    #04060c;
+}
+
+/* Glow removed - no colored gradient behind the hero content. */
+.heroGlow {
+  display: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.5rem;
+  max-width: 920px;
+  padding: 1rem 0;
+}
+
+/* ----------------------------- BADGE ----------------------------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 1rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(206, 219, 255, 0.85);
+  border-radius: 999px;
+  border: 1px solid rgba(120, 150, 255, 0.28);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: inset 0 0 22px rgba(70, 110, 255, 0.12);
+  opacity: 0;
+  animation: heroFadeUp 0.7s ease 0.1s both;
+}
+
+.badgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #7aa6ff;
+  box-shadow: 0 0 10px rgba(122, 166, 255, 0.9);
+}
+
+/* ---------------------------- HEADING ---------------------------- */
+.heroHeading {
+  margin: 0;
+  font-family: "Rajdhani", sans-serif;
+  /* Match the TEAM page heading (PageHeading): Rajdhani, weight 500, 10rem. */
+  font-weight: 500;
+  font-size: 10rem;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+  /* The homepage forces all text white (HomePage.module.css), so the heading
+     text color lives there; keep only typography here. */
+  color: #f4f7ff;
+  text-shadow: 0 2px 50px rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  animation: heroFadeUp 0.7s ease 0.22s both;
+}
+
+/* Responsive sizes mirror the TEAM heading (PageHeading.module.css) so the hero
+   title scales identically to it across breakpoints. */
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+  .heroHeading {
+    font-size: 8rem;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  .heroHeading {
+    font-size: 7rem;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .heroHeading {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .heroHeading {
+    font-size: 3rem;
+  }
+}
+
+/* -------------------------- DESCRIPTION -------------------------- */
+.heroDesc {
+  margin: 0;
+  max-width: 540px;
+  color: rgba(189, 198, 216, 0.82);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.6;
+  opacity: 0;
+  animation: heroFadeUp 0.7s ease 0.35s both;
+}
+
+/* ---------------------------- BUTTONS ---------------------------- */
+.heroButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.6rem;
+  opacity: 0;
+  animation: heroFadeUp 0.7s ease 0.5s both;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 12px;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background 0.25s ease, border-color 0.25s ease;
+}
+
+.primaryBtn {
+  color: #eaf0ff;
+  background: #090b10;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-3px);
+  background: #10141e;
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
+}
+
+.btnArrow {
+  transition: transform 0.25s ease;
+}
+
+.primaryBtn:hover .btnArrow {
+  transform: translateX(4px);
+}
+
+.secondaryBtn {
+  color: #e8edf8;
+  background: #090b10;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.secondaryBtn:hover {
+  transform: translateY(-3px);
+  background: #10141e;
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+/* Hero "Explore Events" CTA - identical styling to the "Explore All Events"
+   button (HomeEvents .exploreBtn) so both render the same. */
+/* Both hero CTAs ("Explore Events" and "Become a Member") share this single
+   class so they are pixel-for-pixel identical: same gradient, colour, font
+   family, weight and size. Spec: Maven Pro, normal, weight 400, 16px,
+   rgb(255,255,255). */
+.exploreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.8rem 1.7rem;
+  border-radius: 12px;
+  font-family: "Maven Pro", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: normal;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  background: #2563eb;
+  box-shadow: 0 10px 26px rgba(37, 99, 235, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.exploreBtn:hover,
+.exploreBtn:focus-visible {
+  transform: translateY(-3px);
+  background: #1d4ed8;
+  box-shadow: 0 14px 32px rgba(37, 99, 235, 0.5);
+  outline: none;
+}
+
+/* ============================ MARQUEE ============================ */
+.marquee {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin-top: 2rem;
+  overflow: hidden;
+  /* fade the marquee edges */
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 7%,
+    #000 93%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 7%,
+    #000 93%,
+    transparent
+  );
+  opacity: 0;
+  animation: marqueeFade 0.9s ease 0.7s both;
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  /* GPU-accelerated, runs off the compositor for a smooth 60fps loop.
+     The duration is a fallback - useMarqueeSpeed overrides it at runtime so the
+     scroll speed matches every other marquee regardless of screen size. */
+  animation: marqueeScroll 45s linear infinite;
+  will-change: transform;
+}
+
+.marquee:hover .marqueeTrack {
+  animation-play-state: paused;
+}
+
+.marqueeCard {
+  flex: 0 0 auto;
+  /* trailing margin (not flex gap) keeps the -50% loop perfectly seamless */
+  margin-right: 1.25rem;
+  /* Larger caps so the cards don't look small on wide/large displays */
+  width: clamp(220px, 22vw, 360px);
+  height: clamp(140px, 14vw, 226px);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.marqueeCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* Full colour, including while the marquee is moving */
+  filter: none;
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.marqueeCard:hover img {
+  filter: brightness(1.05);
+  transform: scale(1.05);
+}
+
+/* ========================== ANIMATIONS ========================== */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marqueeFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* exactly one full (un-duplicated) set, including its trailing margin */
+    transform: translateX(-50%);
+  }
+}
+
+/* ====================== POPUP TRIGGER (kept) ===================== */
+.popupTrigger {
+  position: absolute;
+  z-index: 100;
+  bottom: 10dvh;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  animation: popupTrigger 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes popupTrigger {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(8deg);
+    filter: drop-shadow(0px 0px 10px rgb(255, 225, 0));
+  }
+}
+
+.popupTrigger img {
+  height: 3rem;
+}
+
+/* ========================= RESPONSIVE ========================= */
+@media screen and (max-width: 768px) {
+  .hero {
+    padding: 5.5rem 1.1rem 2rem;
+  }
+
+  .heroContent {
+    gap: 1.25rem;
+    padding: 1.5rem 0;
+  }
+
+  .badge {
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero {
+    padding: 5rem 1rem 1.5rem;
+  }
+
+  .heroContent {
+    gap: 1rem;
+  }
+
+  .badge {
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    padding: 0.4rem 0.7rem;
+  }
+
+  .heroDesc {
+    font-size: 0.95rem;
+  }
+
+  .heroButtons {
+    width: 100%;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .marqueeCard {
+    width: 180px;
+    height: 120px;
+    margin-right: 1rem;
+  }
+
+  .popupTrigger img {
+    height: 2.2rem;
+  }
+}
+
+/* Tall / portrait screens (phones, portrait tablets) make the full-height hero
+   look empty. Cap it near 65% of the viewport so the content sits together and
+   the section "finishes" without a large blank gap. min-height (not height)
+   lets it grow if the content ever needs more room. */
+@media (max-aspect-ratio: 3 / 4) {
+  .hero {
+    min-height: 65dvh;
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+  }
+
+  .badge,
+  .heroHeading,
+  .heroDesc,
+  .heroButtons,
+  .marquee {
+    animation: none;
+    opacity: 1;
+  }
+}

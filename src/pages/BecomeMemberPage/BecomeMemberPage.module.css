@@ -1,0 +1,460 @@
+/* ============================ PAGE ============================ */
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  /* Clear the fixed 5rem navbar. */
+  padding: 8rem 1.5rem 5rem;
+  background-color: #0a0a0f;
+  color: var(--textLight);
+}
+
+.pageTitle {
+  margin: 0 0 2.25rem;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  text-align: center;
+  color: var(--textLight);
+}
+
+/* ======================= GLASSMORPHISM CARD ======================= */
+.formCard {
+  width: 100%;
+  max-width: 460px;
+  box-sizing: border-box;
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  background: linear-gradient(
+    160deg,
+    rgba(24, 26, 40, 0.85) 0%,
+    rgba(14, 15, 26, 0.85) 100%
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+/* Section heading inside the card, above the first field. */
+.cardHeading {
+  margin: 0 0 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: "Maven Pro", sans-serif;
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: 0.01em;
+  color: var(--textLight);
+}
+
+/* ============================= FORM ============================= */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Single vertically-stacked column - every field takes its own row. */
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+/* Fields that should occupy the full width of the grid. */
+.fieldFull {
+  grid-column: 1 / -1;
+}
+
+.label {
+  font-family: "Maven Pro", sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+  color: #c5cbe0;
+}
+
+.required {
+  margin-left: 0.15rem;
+  color: #8b7ff0;
+}
+
+.input,
+.select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.85rem 1rem;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--textLight);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.input::placeholder {
+  color: #7c8296;
+}
+
+.input:hover,
+.select:hover {
+  border-color: rgba(140, 170, 255, 0.35);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Theme-colored focus state matching the site's blue/purple accents. */
+.input:focus,
+.select:focus {
+  border-color: #6e8bff;
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 0 3px rgba(110, 139, 255, 0.2);
+}
+
+/* Custom dropdown arrow so selects match the dark theme. */
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 2.5rem;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23c5cbe0' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+/* Native option list - force dark so it doesn't render white. */
+.select option {
+  background: #11141f;
+  color: var(--textLight);
+}
+
+/* Placeholder-style default option (shows muted until a real value is picked). */
+.placeholderOption {
+  color: #7c8296;
+}
+
+/* ===================== SEARCHABLE DROPDOWN ===================== */
+.comboWrap {
+  position: relative;
+}
+
+/* Trigger reuses the .select look; align text left and keep the arrow. */
+.comboTrigger {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.comboPlaceholder {
+  color: #7c8296;
+}
+
+.comboPanel {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  padding: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: #11141f;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.comboSearch {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0.4rem;
+  padding: 0.6rem 0.8rem;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--textLight);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.comboSearch::placeholder {
+  color: #7c8296;
+}
+
+.comboSearch:focus {
+  border-color: #6e8bff;
+  box-shadow: 0 0 0 3px rgba(110, 139, 255, 0.2);
+}
+
+.comboList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.comboOption {
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #c5cbe0;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.comboOption:hover {
+  background: rgba(110, 139, 255, 0.15);
+  color: var(--textLight);
+}
+
+.comboOptionSelected {
+  background: rgba(110, 139, 255, 0.22);
+  color: var(--textLight);
+}
+
+.comboEmpty {
+  padding: 0.6rem 0.8rem;
+  font-family: "Maven Pro", sans-serif;
+  font-size: 0.85rem;
+  color: #7c8296;
+}
+
+.errorText {
+  font-family: "Maven Pro", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #ff6b6b;
+}
+
+.inputError {
+  border-color: rgba(255, 107, 107, 0.7);
+}
+
+/* ===================== SUCCESS POPUP (MODAL) =====================
+   Shown after a valid submission; closes via the button, the backdrop or
+   Escape. Overlay sits above the fixed navbar (z-index 100) and its mobile
+   drawer (1002). Card reuses the .formCard glass look; icon and button reuse
+   the site's purple/blue accent gradient. */
+.popupOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(2, 3, 8, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: popupFadeIn 0.25s ease;
+}
+
+.popupCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  padding: 2.5rem 2rem 2.25rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  background: linear-gradient(
+    160deg,
+    rgba(24, 26, 40, 0.97) 0%,
+    rgba(14, 15, 26, 0.97) 100%
+  );
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  animation: popupPop 0.25s ease;
+}
+
+.popupIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  margin-bottom: 0.4rem;
+  border-radius: 50%;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #8b7ff0 0%, #6e8bff 100%);
+  box-shadow: 0 12px 30px rgba(120, 110, 255, 0.35);
+}
+
+.popupTitle {
+  margin: 0;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+  font-size: 1.9rem;
+  line-height: 1.1;
+  color: var(--textLight);
+}
+
+.popupMessage {
+  margin: 0;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #c5cbe0;
+}
+
+.popupCloseBtn {
+  margin-top: 1.25rem;
+  padding: 0.7rem 2.4rem;
+  border: none;
+  border-radius: 12px;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: #ffffff;
+  background: #090b10;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background 0.25s ease, border-color 0.25s ease;
+}
+
+.popupCloseBtn:hover,
+.popupCloseBtn:focus-visible {
+  transform: translateY(-2px);
+  background: #10141e;
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
+  outline: none;
+}
+
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popupPop {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .popupOverlay,
+  .popupCard {
+    animation: none;
+  }
+}
+
+/* ========================= SUBMIT BUTTON =========================
+   Exact copy of the Home "Explore Events" CTA (.exploreBtn in
+   Home.module.css) - same gradient, radius, padding, shadow, font
+   (Maven Pro 600), white text, hover lift and transition. Duplicated in
+   the same way the codebase already mirrors this class across Home and
+   HomeEvents, so both render identically. */
+.submitRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 0.55rem;
+  padding: 0.8rem 1.7rem;
+  border: none;
+  border-radius: 12px;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  background: #090b10;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background 0.25s ease, border-color 0.25s ease;
+}
+
+.submitBtn:hover,
+.submitBtn:focus-visible {
+  transform: translateY(-3px);
+  background: #10141e;
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
+  outline: none;
+}
+
+/* While the POST is in flight. */
+.submitBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* Server/network failure banner shown above the submit button. */
+.submitError {
+  padding: 0.9rem 1.1rem;
+  border: 1px solid rgba(255, 107, 107, 0.45);
+  border-radius: 12px;
+  background: rgba(255, 107, 107, 0.1);
+  color: #ffb3b3;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* =========================== RESPONSIVE =========================== */
+@media (max-width: 768px) {
+  .pageContainer {
+    padding: 7rem 1rem 4rem;
+  }
+
+  .formCard {
+    padding: 1.75rem 1.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .formCard {
+    padding: 1.5rem 1.1rem;
+    border-radius: 16px;
+  }
+}

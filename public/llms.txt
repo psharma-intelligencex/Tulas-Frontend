@@ -1,0 +1,27 @@
+# UPES Cloud Security Alliance (CSA)
+
+> The UPES Cloud Security Alliance (CSA) is the official student chapter of the Cloud Security Alliance at the University of Petroleum and Energy Studies (UPES), Dehradun, Uttarakhand, India. It runs technical events, hackathons, workshops, blogs and community initiatives focused on cloud security, cybersecurity and technology. It is part of the CSA Uttarakhand Chapter network.
+
+## Key facts
+- Full name: UPES Cloud Security Alliance (also "UPES CSA")
+- Type: Student chapter of the Cloud Security Alliance
+- Institution: University of Petroleum and Energy Studies (UPES), Dehradun, Uttarakhand, India
+- Focus: Cloud security, cybersecurity, development, hackathons, workshops, student community
+- Contact: csa@upes.ac.in
+- Website: https://upescsa.in/
+
+## Pages
+- [Home](https://upescsa.in/): Overview of the chapter, highlights, latest events and blogs.
+- [Events](https://upescsa.in/events): Technical events, hackathons, workshops and competitions.
+- [Blogs](https://upescsa.in/blogs): Articles on cloud security, development and technology.
+- [Team](https://upescsa.in/team): The students leading the chapter.
+- [Committees](https://upescsa.in/committees): The chapter's committees and their members.
+- [CSR](https://upescsa.in/csr): Community outreach and social-responsibility initiatives.
+- [Alumni](https://upescsa.in/alumni): The chapter's alumni network.
+- [Become a Member](https://upescsa.in/become-a-member): How to join the chapter.
+
+## Social
+- Instagram: https://www.instagram.com/upescsa/
+- LinkedIn: https://www.linkedin.com/company/upescsa/
+- Twitter/X: https://twitter.com/upescsa
+- Facebook: https://www.facebook.com/upescsa/

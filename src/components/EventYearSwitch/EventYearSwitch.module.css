@@ -1,0 +1,65 @@
+.eventYearSwitchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1.5rem 0;
+  width: 100%;
+}
+
+.eventYearSwitchButton {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #7f8598;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.eventYearSwitchButton:hover {
+  color: #e8edf8;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.activeButton,
+.activeButton:hover {
+  color: #ffffff;
+  background: linear-gradient(135deg, #8b7ff0 0%, #6e8bff 100%);
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(120, 110, 255, 0.3);
+}
+
+/* =========================== RESPONSIVE =========================== */
+@media (max-width: 768px) {
+  .eventYearSwitchContainer {
+    gap: 0.4rem;
+    padding: 1rem 0;
+  }
+
+  .eventYearSwitchButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    font-size: 1rem;
+    padding: 0.55rem 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .eventYearSwitchContainer {
+    gap: 0.35rem;
+  }
+
+  .eventYearSwitchButton {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+  }
+}

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/jpg" href="/logo/upescsa_nobg_low.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="TULAS Cloud Security Alliance (CSA): a student chapter for cybersecurity and cloud security workshops, hackathons, CTF contests, technical blogs, and community."
+    />
+    <meta name="author" content="TULAS Cloud Security Alliance" />
+    <link rel="canonical" href="https://upescsa.in/" />
+
+    <!-- Search engine crawling -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Browser UI / PWA theme color (brand indigo from the design system) -->
+    <meta name="theme-color" content="#3827cd" />
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="TULAS Cloud Security Alliance" />
+    <meta property="og:title" content="TULAS Cloud Security Alliance | Cybersecurity Student Chapter" />
+    <meta
+      property="og:description"
+      content="TULAS Cloud Security Alliance (CSA): a student chapter for cybersecurity and cloud security workshops, hackathons, CTF contests, technical blogs, and community."
+    />
+    <meta property="og:url" content="https://upescsa.in/" />
+    <meta
+      property="og:image"
+      content="https://upescsa.in/logo/upescsa_nobg_high.png"
+    />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1920" />
+    <meta property="og:image:alt" content="UPES Cloud Security Alliance Logo" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@upescsa" />
+    <meta name="twitter:title" content="TULAS Cloud Security Alliance | Cybersecurity Student Chapter" />
+    <meta
+      name="twitter:description"
+      content="TULAS Cloud Security Alliance (CSA): a student chapter for cybersecurity and cloud security workshops, hackathons, CTF contests, technical blogs, and community."
+    />
+    <meta
+      name="twitter:image"
+      content="https://upescsa.in/logo/upescsa_nobg_high.png"
+    />
+    <meta name="twitter:image:alt" content="TULAS Cloud Security Alliance Logo" />
+
+    <!-- JSON-LD structured data: Organization + WebSite -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": ["EducationalOrganization", "Organization"],
+            "@id": "https://upescsa.in/#organization",
+            "name": "UPES Cloud Security Alliance",
+            "alternateName": ["UPES CSA", "CSA UPES", "CSA Uttarakhand Chapter"],
+            "url": "https://upescsa.in/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://upescsa.in/logo/upescsa_nobg_high.png",
+              "width": 1920,
+              "height": 1920
+            },
+            "description": "The UPES Cloud Security Alliance (CSA) is the official student chapter of the Cloud Security Alliance at the University of Petroleum and Energy Studies, Dehradun, running technical events, hackathons, workshops and community initiatives in cloud security and technology.",
+            "email": "csa@upes.ac.in",
+            "foundingLocation": {
+              "@type": "Place",
+              "name": "Dehradun, Uttarakhand, India"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Dehradun",
+              "addressRegion": "Uttarakhand",
+              "addressCountry": "IN"
+            },
+            "parentOrganization": {
+              "@type": "Organization",
+              "name": "Cloud Security Alliance",
+              "url": "https://cloudsecurityalliance.org/"
+            },
+            "memberOf": {
+              "@type": "Organization",
+              "name": "Cloud Security Alliance"
+            },
+            "sameAs": [
+              "https://www.instagram.com/upescsa/",
+              "https://www.linkedin.com/company/upescsa/",
+              "https://www.youtube.com/channel/UCOQTG59VV6-1czSs57XAFrA",
+              "https://twitter.com/upescsa",
+              "https://www.facebook.com/upescsa/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://upescsa.in/#website",
+            "name": "UPES Cloud Security Alliance",
+            "alternateName": "UPES CSA",
+            "url": "https://upescsa.in/",
+            "inLanguage": "en-IN",
+            "publisher": { "@id": "https://upescsa.in/#organization" }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://upescsa.in/#webpage",
+            "url": "https://upescsa.in/",
+            "name": "UPES Cloud Security Alliance | Cybersecurity Student Chapter",
+            "description": "UPES Cloud Security Alliance (CSA): a student chapter for cybersecurity and cloud security workshops, hackathons, CTF contests, technical blogs, and community.",
+            "inLanguage": "en-IN",
+            "isPartOf": { "@id": "https://upescsa.in/#website" },
+            "about": { "@id": "https://upescsa.in/#organization" }
+          }
+        ]
+      }
+    </script>
+
+    <!-- LCP hero. hero-bg.jpg is the hero background on the homepage
+         (Home.module.css) and on every PageHeading route (events, blogs, team,
+         committees, csr, alumni), so it is the LCP candidate on those pages.
+         It is referenced from CSS, which the browser only discovers after the
+         stylesheet parses - preloading lets the fetch start immediately. The
+         .jpg is preloaded deliberately: the CSS background requests the .jpg,
+         so preloading the AVIF/WebP twin would be an unused download. -->
+    <link rel="preload" as="image" href="/img/hero/hero-bg.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Maven+Pro:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>TULAS Cloud Security Alliance | Cybersecurity Student Chapter</title>
+
+    <!-- Page-load splash loader (renders instantly, before the JS bundle /
+         React mount, so the first paint is branded instead of blank). Removed
+         by src/main.jsx once the app has mounted. -->
+    <style>
+      #csa-splash {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 26px;
+        background:
+          radial-gradient(1000px 700px at 50% 30%, #12122a 0%, transparent 60%),
+          radial-gradient(800px 600px at 50% 120%, #1a0f3a 0%, transparent 55%),
+          #06060c;
+        opacity: 1;
+        transition: opacity 0.55s ease;
+        font-family: "Rajdhani", "Maven Pro", system-ui, sans-serif;
+      }
+      #csa-splash.csa-splash--hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .csa-splash-mark {
+        position: relative;
+        width: 132px;
+        height: 132px;
+        display: grid;
+        place-items: center;
+      }
+      .csa-splash-ring {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: conic-gradient(
+          from 0deg,
+          transparent 0%,
+          #3827cd 35%,
+          #18b4f1 62%,
+          #33c2ff 74%,
+          transparent 92%
+        );
+        -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 5px));
+        mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 5px));
+        animation: csa-spin 1.05s linear infinite;
+      }
+      .csa-splash-ring.csa-splash-ring--slow {
+        inset: 12px;
+        background: conic-gradient(from 180deg, transparent 40%, rgba(56, 39, 205, 0.55) 75%, transparent 100%);
+        animation: csa-spin 1.8s linear infinite reverse;
+      }
+      .csa-splash-logo {
+        width: 74px;
+        height: 74px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 18px rgba(56, 39, 205, 0.75));
+        animation: csa-pulse 1.6s ease-in-out infinite;
+      }
+      .csa-splash-title {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        font-weight: 700;
+        font-size: 22px;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, #7aa2ff, #33c2ff, #b98bff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding-left: 0.34em;
+      }
+      .csa-splash-sub {
+        margin-top: -14px;
+        font-size: 12px;
+        letter-spacing: 0.5em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.42);
+        padding-left: 0.5em;
+        font-weight: 500;
+      }
+      .csa-splash-dots { display: flex; gap: 7px; margin-top: 2px; }
+      .csa-splash-dots i {
+        width: 8px; height: 8px; border-radius: 50%;
+        background: linear-gradient(135deg, #3827cd, #18b4f1);
+        display: inline-block;
+        animation: csa-bounce 1.1s ease-in-out infinite;
+      }
+      .csa-splash-dots i:nth-child(2) { animation-delay: 0.15s; }
+      .csa-splash-dots i:nth-child(3) { animation-delay: 0.3s; }
+      @keyframes csa-spin { to { transform: rotate(360deg); } }
+      @keyframes csa-pulse {
+        0%, 100% { transform: scale(1); filter: drop-shadow(0 0 14px rgba(56, 39, 205, 0.6)); }
+        50% { transform: scale(1.07); filter: drop-shadow(0 0 26px rgba(51, 194, 255, 0.85)); }
+      }
+      @keyframes csa-bounce {
+        0%, 100% { transform: translateY(0); opacity: 0.5; }
+        50% { transform: translateY(-7px); opacity: 1; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .csa-splash-ring, .csa-splash-logo, .csa-splash-dots i { animation-duration: 0.001ms; animation-iteration-count: 1; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="csa-splash" role="status" aria-label="Loading CSA Uttarakhand">
+      <div class="csa-splash-mark">
+        <span class="csa-splash-ring"></span>
+        <span class="csa-splash-ring csa-splash-ring--slow"></span>
+        <img class="csa-splash-logo" src="/logo/upescsa_nobg_low.png" alt="CSA" />
+      </div>
+      <div class="csa-splash-title">CSA</div>
+      <div class="csa-splash-sub">Uttarakhand</div>
+      <div class="csa-splash-dots"><i></i><i></i><i></i></div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

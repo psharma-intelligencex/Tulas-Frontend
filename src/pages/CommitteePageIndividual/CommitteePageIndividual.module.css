@@ -1,0 +1,223 @@
+/* ============================ PAGE ============================ */
+/* Mirrors the dark theme used by the Committees list and Team pages. */
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #0a0a0f;
+  color: var(--textLight);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1180px;
+  padding: 2.5rem 1.5rem 4.5rem;
+}
+
+.overline {
+  margin: 0 0 0.75rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #6e8bff;
+}
+
+.description {
+  margin: 0 auto 1rem;
+  max-width: 760px;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #c4cad8;
+}
+
+/* ===================== GRADIENT SECTION LABEL ===================== */
+.sectionLabel {
+  margin: 3.5rem 0 2rem;
+  text-align: center;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+  letter-spacing: 0.01em;
+  background: linear-gradient(100deg, #6ea8ff 0%, #9a8cff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ============================ HEADS ============================ */
+.headsRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.card {
+  flex: 0 0 auto;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  background: #11141f;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(140, 160, 255, 0.3);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+}
+
+.cardLink:focus-visible {
+  outline: 2px solid #7aa6ff;
+  outline-offset: 2px;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1rem;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #6ea8ff, #9a8cff);
+  box-shadow: 0 8px 22px rgba(120, 110, 255, 0.25);
+}
+
+/* When the avatar is a photo, fill the circle without distorting the face. */
+.avatarImg {
+  object-fit: cover;
+}
+
+.cardName {
+  margin: 0;
+  text-align: center;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  color: #f4f6fb;
+  overflow-wrap: anywhere;
+}
+
+.cardRole {
+  margin: 0.3rem 0 0;
+  text-align: center;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #9aa1b5;
+}
+
+/* =========================== MEMBERS =========================== */
+.membersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.memberChip {
+  padding: 0.85rem 1rem;
+  text-align: center;
+  background: #101017;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  color: #d6dae6;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.memberChip:hover {
+  transform: translateY(-2px);
+  border-color: rgba(140, 160, 255, 0.3);
+}
+
+/* ====================== ERROR / EMPTY STATE ====================== */
+.stateWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 5rem 1.5rem;
+}
+
+.stateText {
+  max-width: 560px;
+  text-align: center;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #9aa1b5;
+}
+
+/* ========================== RESPONSIVE ========================== */
+@media (max-width: 768px) {
+  .content {
+    padding: 2rem 1rem 3.5rem;
+  }
+
+  .sectionLabel {
+    margin: 3rem 0 1.75rem;
+  }
+
+  .headsRow {
+    gap: 1rem;
+  }
+
+  .card {
+    width: calc(50% - 0.5rem);
+    max-width: 200px;
+    padding: 1.25rem 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 1.75rem 0.85rem 3rem;
+  }
+
+  .headsRow {
+    gap: 0.8rem;
+  }
+
+  .card {
+    width: calc(50% - 0.4rem);
+    padding: 1.1rem 0.6rem;
+  }
+
+  .avatar {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 0.85rem;
+    font-size: 2.4rem;
+  }
+
+  .membersGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

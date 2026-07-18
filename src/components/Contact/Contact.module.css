@@ -1,0 +1,229 @@
+/* ============================ FOOTER ============================ */
+.footer {
+  box-sizing: border-box;
+  width: 100%;
+  color: var(--textLight);
+  /* Dark overlay over the existing hero background image - kept exactly. */
+  background:
+    linear-gradient(180deg, rgba(6, 7, 13, 0.93) 0%, rgba(6, 7, 13, 0.96) 100%),
+    url("/img/hero/hero-bg.jpg") center / cover no-repeat;
+}
+
+.footerInner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 1.5rem;
+}
+
+/* Three columns: Follow us!  |  Logo  |  Contact Us */
+.footerTop {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 2rem 2.5rem;
+}
+
+/* ----------------------------- HEADINGS ----------------------------- */
+.colTitle {
+  margin: 0 0 1.1rem;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
+  color: #f4f6fb;
+}
+
+/* --------------------------- LEFT: FOLLOW --------------------------- */
+.follow {
+  justify-self: start;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.socialBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* Comfortable tap target. */
+  min-width: 44px;
+  min-height: 44px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.socialBtn img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  /* Existing icon PNGs are black glyphs - render white for the dark footer
+     (CSS only; the asset files are untouched). */
+  filter: brightness(0) invert(1);
+}
+
+.socialBtn:hover,
+.socialBtn:focus-visible {
+  transform: translateY(-2px);
+  opacity: 0.85;
+  outline: none;
+}
+
+/* --------------------------- CENTER: LOGO --------------------------- */
+.logoCenter {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoImg {
+  display: block;
+  height: 9rem;
+  width: auto;
+  object-fit: contain;
+}
+
+/* -------------------------- RIGHT: CONTACT -------------------------- */
+.contact {
+  justify-self: end;
+  text-align: left;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: #c4c9d6;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a.contactItem:hover,
+a.contactItem:focus-visible {
+  color: #ffffff;
+  outline: none;
+}
+
+.contactIcon {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  /* Black glyph PNGs rendered white for the dark footer (asset untouched). */
+  filter: brightness(0) invert(1);
+}
+
+/* ----------------------------- BOTTOM ----------------------------- */
+.footerBottom {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  font-size: 0.85rem;
+  color: #8b90a0;
+}
+
+/* =========================== RESPONSIVE =========================== */
+/* Tablet & below - stack the three columns, centered (logo in the middle). */
+@media (max-width: 900px) {
+  .footerInner {
+    padding: 2.5rem 1.25rem 1.25rem;
+  }
+
+  .footerTop {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 2.25rem;
+  }
+
+  .follow,
+  .contact {
+    justify-self: center;
+    text-align: center;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+
+  .contactItem {
+    justify-content: center;
+  }
+}
+
+/* Mobile - tighten spacing and scale the logo down. */
+@media (max-width: 480px) {
+  .footerInner {
+    padding: 2.25rem 1rem 1.25rem;
+  }
+
+  .logoImg {
+    height: 7rem;
+  }
+
+  .colTitle {
+    font-size: 1.2rem;
+  }
+
+  .footerBottom {
+    margin-top: 2rem;
+  }
+}
+
+/* Tablet (768px–1024px) ONLY - lay the footer out horizontally so Follow us,
+   Logo and Contact Us sit side by side in one balanced row (mobile <768px stays
+   stacked; desktop >1024px is unchanged). A symmetric 1fr auto 1fr grid keeps
+   the logo perfectly centered, while justify-self end/start pulls the two side
+   sections inward toward the logo - so the gaps stay compact and even instead
+   of the sections being stretched to the far edges. */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .footerInner {
+    padding: 2.5rem 1rem 1.25rem;
+  }
+
+  .footerTop {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    /* Compact, equal horizontal spacing between the three sections. */
+    gap: 2rem;
+    text-align: center;
+  }
+
+  /* Pull "Follow us!" toward the centered logo. */
+  .follow {
+    justify-self: end;
+    text-align: center;
+  }
+
+  .logoCenter {
+    justify-self: center;
+  }
+
+  /* Pull "Contact Us" toward the centered logo. */
+  .contact {
+    justify-self: start;
+    min-width: 0;
+    text-align: left;
+  }
+
+  /* Social icons centered under the heading, 18px apart (within 16–20px). */
+  .socials {
+    justify-content: center;
+    gap: 1.125rem;
+  }
+
+  .contactItem {
+    justify-content: flex-start;
+  }
+}

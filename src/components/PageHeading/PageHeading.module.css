@@ -1,0 +1,95 @@
+.pageHeadingDiv {
+  text-align: center;
+  color: var(--textLight);
+  font-weight: 500;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 10rem;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 1rem;
+}
+
+/* Tablet range (≤1023px) - scales the hero heading between the desktop
+   size and the small-screen size. */
+@media screen and (max-width: 1023px) {
+  .pageHeadingDiv {
+    font-size: 7rem;
+    height: 24rem;
+  }
+}
+
+/* Tablet landscape / small laptop (1024-1200px, e.g. iPad Pro / Nest Hub
+   width): the full 10rem desktop heading nearly spans the whole viewport
+   here, so step it between the tablet (7rem) and desktop (10rem) sizes. */
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+  .pageHeadingDiv {
+    font-size: 8rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .pageHeadingDiv {
+    font-size: 5rem;
+    margin-top: 5rem;
+    height: 20rem;
+    line-height: normal;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .pageHeadingDiv {
+    font-size: 3rem;
+    height: 14rem;
+    padding: 0.75rem;
+  }
+}
+
+/* Compact hero (committee pages): a shorter, viewport-height-aware header so it
+   doesn't dominate wide or short screens - e.g. at 1024x600 the fixed 30rem
+   header ate ~80% of the screen. Only wide screens (>=769px) are adjusted, so
+   narrow / mobile keep the sizes above. Declared after the rules above so it
+   wins by source order.
+   The hero sits underneath the fixed 5rem navbar (there is no margin-top at
+   these widths), so reserve the bar's height as top padding - otherwise the
+   vertically-centred title rides up into the navbar on short viewports
+   (e.g. Nest Hub 1024x600). */
+@media screen and (min-width: 769px) {
+  .pageHeadingCompact {
+    box-sizing: border-box;
+    height: clamp(15rem, 46vh, 24rem);
+    padding-top: 6rem;
+  }
+}
+
+.pageHeadingDiv::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--bgDark);
+  width: 100%;
+  height: 100%;
+  opacity: 0.85;
+}
+
+.pageHeading {
+  position: relative;
+  margin: 1rem;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  /* Rendered as an <h1>; inherit the hero font-size/weight from .pageHeadingDiv
+     so the browser's default h1 sizing/weight doesn't change the appearance. */
+  font-size: inherit;
+  font-weight: inherit;
+  /* Tighten the gap between wrapped lines and balance them so multi-word
+     titles read as a compact block instead of far-apart lines. */
+  line-height: 1.08;
+  text-wrap: balance;
+}

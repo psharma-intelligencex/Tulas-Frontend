@@ -1,0 +1,22 @@
+{
+  "name": "UPES Cloud Security Alliance",
+  "short_name": "UPES CSA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020202",
+  "theme_color": "#3827cd",
+  "icons": [
+    {
+      "src": "/logo/upescsa_nobg_low.png",
+      "sizes": "500x500",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo/upescsa_nobg_high.png",
+      "sizes": "1920x1920",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

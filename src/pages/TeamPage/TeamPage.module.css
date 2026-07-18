@@ -1,0 +1,382 @@
+/* ============================ PAGE ============================ */
+.teamPageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #0a0a0f;
+  color: var(--textLight);
+}
+
+.treeWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1180px;
+  padding: 2.5rem 1.5rem 4.5rem;
+}
+
+/* Short intro copy under the hero. Muted, centred and width-limited so it
+   blends into the existing dark team layout without altering the design. */
+.intro {
+  max-width: 760px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.treeOverline {
+  margin: 0 0 0.5rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #6e8bff;
+}
+
+/* ============================= TREE ============================= */
+.tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.tier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* A standalone tier with no connector - add spacing so it reads as separate
+   from the hierarchy below (which the missing connector would have provided). */
+.detachedTier {
+  margin-bottom: 2.5rem;
+}
+
+/* vertical connector "spine" between tiers, with a node dot at the bottom */
+.connector {
+  position: relative;
+  width: 2px;
+  height: 54px;
+  background: linear-gradient(
+    180deg,
+    rgba(110, 139, 255, 0.12),
+    rgba(154, 140, 255, 0.6)
+  );
+}
+
+.connector::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #8b7ff0;
+  box-shadow: 0 0 12px rgba(139, 127, 240, 0.7);
+}
+
+/* Org badge above a tier label - marks which organization a section belongs
+   to (blue = UPES; see .tierOrgCsa for the CSA Uttarakhand variant). */
+.tierOrg {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 0.3rem 1rem;
+  border-radius: 999px;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #8fb2ff;
+  border: 1px solid rgba(110, 168, 255, 0.35);
+  background: rgba(110, 168, 255, 0.08);
+}
+
+/* Gold variant for CSA Uttarakhand, so it reads as a different org than the
+   blue UPES sections at a glance. */
+.tierOrgCsa {
+  color: #ffd27a;
+  border-color: rgba(255, 200, 110, 0.4);
+  background: rgba(255, 200, 110, 0.08);
+}
+
+.tierLabel {
+  margin: 0.9rem 0 1.5rem;
+  text-align: center;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+  letter-spacing: 0.01em;
+  background: linear-gradient(100deg, #6ea8ff 0%, #9a8cff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* members of a tier sit in a centered, wrapping row */
+.tierMembers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Call-to-action shown below a tier's cards (outside the photo): a caption
+   above a button. Extra top margin keeps the profile card clear of the CTA
+   button's upward neon glow (box-shadow spreads ~30-44px), so the two never
+   visually overlap. */
+.tierCta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 3rem;
+}
+
+.tierCtaCaption {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #9aa1b5;
+}
+
+.tierCta .roleLink {
+  margin-top: 0;
+}
+
+/* ============================== CARD ============================== */
+.memberCard {
+  flex: 0 0 auto;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  background: #11141f;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.memberCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(140, 160, 255, 0.3);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1rem;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #6ea8ff, #9a8cff);
+  box-shadow: 0 8px 22px rgba(120, 110, 255, 0.25);
+}
+
+/* When the avatar is a photo, fill the circle without distorting the face. */
+img.avatar {
+  object-fit: cover;
+}
+
+.memberBody {
+  text-align: center;
+}
+
+.memberName {
+  margin: 0;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  color: #f4f6fb;
+  overflow-wrap: anywhere;
+}
+
+.memberRole {
+  margin: 0.3rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #9aa1b5;
+}
+
+/* Role rendered as a button/pill (e.g. "Board of Directors" → CSA board page). */
+.roleLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.75rem;
+  padding: 0.9rem 4rem;
+  border-radius: 999px;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  text-decoration: none;
+  background: linear-gradient(135deg, #6ea8ff, #9a8cff);
+  box-shadow: 0 8px 20px rgba(120, 110, 255, 0.32);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.roleLink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(120, 110, 255, 0.42);
+}
+
+/* ---------------------------------------------------------------------------
+   CTA - used ONLY by the "Board of Directors" button. A clean, flat, wide
+   rounded-rectangle button using the homepage CTA (.exploreBtn) brand color
+   and typography - no glow, glassmorphism, blur or shadow. Users icon, divider
+   and a flat circular arrow. Does not affect .roleLink (member role links).
+   --------------------------------------------------------------------------- */
+.boardCta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  width: min(620px, 90vw);
+  min-height: 92px;
+  margin-top: 1rem;
+  padding: 0 1.5rem 0 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 22px;
+  /* Homepage CTA typography: Maven Pro, SemiBold. */
+  font-family: "Maven Pro", sans-serif;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  /* Solid blue button color (no gradient) to match the other CTAs. */
+  background: #2563eb;
+  transition: transform 0.3s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.boardCta:hover {
+  transform: translateY(-2px);
+  background: #1d4ed8;
+}
+
+.boardCtaIcon {
+  flex-shrink: 0;
+}
+
+.boardCtaText {
+  flex: 1;
+  text-align: left;
+  font-size: clamp(1.25rem, 3vw, 1.7rem);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  /* Brighter, crisp white for stronger contrast on the blue button. */
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Thin vertical divider near the right side. */
+.boardCtaDivider {
+  flex-shrink: 0;
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Flat circular outlined arrow on the far right - no glow/shadow. */
+.boardCtaArrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+}
+
+/* =========================== RESPONSIVE =========================== */
+@media (max-width: 768px) {
+  .treeWrap {
+    padding: 2rem 1rem 3.5rem;
+  }
+
+  .tierMembers {
+    gap: 1rem;
+  }
+
+  .memberCard {
+    width: calc(50% - 0.5rem);
+    max-width: 200px;
+    padding: 1.25rem 0.85rem;
+  }
+
+  .connector {
+    height: 44px;
+  }
+
+  .boardCta {
+    width: 78vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .treeWrap {
+    padding: 1.75rem 0.85rem 3rem;
+  }
+
+  .tierMembers {
+    gap: 0.8rem;
+  }
+
+  .memberCard {
+    width: calc(50% - 0.4rem);
+    padding: 1.1rem 0.6rem;
+  }
+
+  .avatar {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 0.85rem;
+    font-size: 2.4rem;
+  }
+
+  .connector {
+    height: 38px;
+  }
+
+  .boardCta {
+    gap: 0.75rem;
+    width: 94vw;
+    min-height: 68px;
+    padding: 0 1rem 0 1.25rem;
+    border-radius: 16px;
+  }
+
+  .boardCtaArrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .boardCtaDivider {
+    height: 30px;
+  }
+}

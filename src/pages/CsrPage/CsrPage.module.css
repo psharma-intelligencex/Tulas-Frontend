@@ -1,0 +1,355 @@
+.csrContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  /* Dark content background, matching the home page sections. */
+  background-color: #0a0d18;
+}
+
+/* ===================================================================
+   CSR CONTENT - premium light landing section (hero & footer untouched)
+   =================================================================== */
+.content {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  /* Tighter top padding trims the gap between the hero and "Our Impact";
+     bottom padding is kept for separation from the footer. */
+  padding: 60px 32px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+  text-align: left;
+  /* Match the Home page: a single white text color (--textLight). */
+  color: var(--textLight);
+}
+
+/* Shared eyebrow / heading / description -------------------------- */
+.label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  /* Match the Home page: white text (--textLight). */
+  color: var(--textLight);
+}
+
+.heading {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  /* Match the Home page: solid white heading text (--textLight). */
+  color: var(--textLight);
+}
+
+.description {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--textLight);
+  max-width: 62ch;
+}
+
+/* ----------------------------- SECTION 1 ----------------------------- */
+.impactSection {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 56px;
+  /* Title, tagline and subtitle sit at the vertical top of the section. */
+  align-items: start;
+}
+
+/* Left column: text at the top, a 5th image card fills the space below it
+   so the column matches the height of the bento on the right. */
+.impactLeft {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.impactText {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fillCard {
+  /* Hug the image - no forced growth, so no empty space below it. */
+  flex: 0 0 auto;
+}
+
+/* Even 2×2 grid - every card is a fixed 4:3 cell (same ratio as the gallery
+   cards below), so tops, seams and bottoms stay flush at every width and the
+   block starts/ends level with the text column's fill image beside it.
+   Images crop to cover their cell. */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.bento .imageCard {
+  aspect-ratio: 4 / 3;
+}
+
+.bento .bentoMedia {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Premium image card (shared look) */
+.imageCard {
+  position: relative;
+  margin: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #eef2f7;
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.1);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.bentoMedia {
+  width: 100%;
+  /* Natural height: the box matches the image, so it fills edge-to-edge
+     with no crop and no white space. */
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.imageCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 44px rgba(16, 24, 40, 0.18);
+}
+
+.imageCard:hover .bentoMedia {
+  transform: scale(1.06);
+}
+
+/* --------------------------- FEATURE CARDS --------------------------- */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.featureCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 36px 32px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
+}
+
+/* Icon + title share a row; title sits to the right of the icon. */
+.featureHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* No circle - the icon matches the Home page's white icon treatment. */
+.featureIcon {
+  /* Match the Home page: white icon color (--textLight). */
+  color: var(--textLight);
+  flex-shrink: 0;
+}
+
+.featureTitle {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  /* Match the Home page: solid white card title (--textLight). */
+  color: var(--textLight);
+}
+
+.featureDesc {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--textLight);
+}
+
+/* ----------------------------- GALLERY ------------------------------ */
+.gallerySection {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.galleryHead {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.galleryHead .description {
+  text-align: center;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.galleryCard {
+  position: relative;
+  margin: 0;
+  border-radius: 22px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #eef2f7;
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.1);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.galleryCard img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.galleryOverlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: linear-gradient(
+    to top,
+    rgba(11, 16, 32, 0.6),
+    rgba(11, 16, 32, 0) 55%
+  );
+  transition: opacity 0.35s ease;
+}
+
+.galleryCaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 18px 20px;
+  color: var(--textLight);
+  font-weight: 600;
+  font-size: 1rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.galleryCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 44px rgba(16, 24, 40, 0.18);
+}
+.galleryCard:hover img {
+  transform: scale(1.07);
+}
+.galleryCard:hover .galleryOverlay {
+  opacity: 1;
+}
+.galleryCard:hover .galleryCaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Two-column layout (>=1025px, e.g. iPad Air 1180px): the left "fill" image
+   grows to occupy the space under the text and is cropped to cover it, so the
+   left column ends level with the bento on the right - both sides equal height.
+   Absolute positioning keeps the image's natural height from stretching the
+   column, letting the bento define the row height. */
+@media screen and (min-width: 1025px) {
+  .fillCard {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .fillCard .bentoMedia {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* ============================ RESPONSIVE ============================ */
+@media screen and (max-width: 1024px) {
+  .content {
+    padding: 48px 28px 80px;
+    gap: 80px;
+  }
+
+  .impactSection {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .features {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .galleryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .content {
+    padding: 40px 20px 64px;
+    gap: 64px;
+  }
+
+  .bento {
+    gap: 16px;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .galleryGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .featureCard {
+    padding: 28px 24px;
+  }
+}
+
+.csrHeader {
+  width: 100%;
+}
+
+/* ========================== RESPONSIVE ========================== */
+@media (max-width: 768px) {
+  .csrContainer {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}

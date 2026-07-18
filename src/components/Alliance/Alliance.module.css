@@ -1,0 +1,220 @@
+/* ============================ SECTION ============================ */
+.allianceContainer {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  /* Generous top/bottom padding so this section is clearly separated from the
+     ones above and below it. */
+  padding: 3rem 0;
+  background-color: #0a0a0f;
+  overflow: hidden;
+}
+
+/* ============================ HEADER ============================ */
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 0 1.5rem;
+}
+
+.overline {
+  margin: 0 0 0.6rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #6e8bff;
+}
+
+.heading {
+  margin: 0;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: #f2f4fa;
+}
+
+.headingAccent {
+  background: linear-gradient(100deg, #6ea8ff 0%, #9a8cff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ============================ MARQUEE ============================ */
+.marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  /* fade the marquee edges */
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  padding: 0.5rem 0;
+  /* Duration is a fallback - useMarqueeSpeed overrides it at runtime so this
+     matches every other marquee's speed regardless of card count / screen. */
+  animation: allianceScroll 35s linear infinite;
+  will-change: transform;
+}
+
+.marquee:hover .marqueeTrack {
+  animation-play-state: paused;
+}
+
+@keyframes allianceScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* exactly one (un-duplicated) set, including each card's trailing margin */
+    transform: translateX(-50%);
+  }
+}
+
+/* ============================== CARD ============================== */
+.card {
+  flex: 0 0 auto;
+  /* trailing margin (not flex gap) keeps the -50% loop perfectly seamless */
+  margin-right: 1.5rem;
+  width: 210px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.75rem 1.25rem;
+  background: #101017;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  text-decoration: none;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(140, 160, 255, 0.3);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+}
+
+.card:focus-visible {
+  outline: 2px solid #7aa6ff;
+  outline-offset: 2px;
+}
+
+.logoWrap {
+  width: 100%;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  /* soft glow behind the logo, like the reference */
+  background: radial-gradient(
+    circle at center,
+    rgba(120, 140, 220, 0.12),
+    transparent 70%
+  );
+}
+
+.logo {
+  max-width: 78%;
+  max-height: 66px;
+  object-fit: contain;
+  /* keep logos in full colour - never desaturated */
+  filter: none;
+}
+
+.name {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-align: center;
+  color: #d6dae6;
+}
+
+.stateMsg {
+  margin: 1.5rem 0;
+  text-align: center;
+  color: #aab1c4;
+  font-size: 1rem;
+}
+
+/* =========================== RESPONSIVE =========================== */
+@media (max-width: 768px) {
+  .allianceContainer {
+    padding: 2rem 0;
+  }
+
+  .header {
+    margin-bottom: 2.25rem;
+  }
+
+  .card {
+    width: 170px;
+    margin-right: 1.1rem;
+    padding: 1.4rem 1rem;
+  }
+
+  .logoWrap {
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    margin-bottom: 1.75rem;
+    padding: 0 1rem;
+  }
+
+  .card {
+    width: 150px;
+    margin-right: 0.9rem;
+    padding: 1.25rem 0.85rem;
+    gap: 0.75rem;
+  }
+
+  .logoWrap {
+    height: 70px;
+  }
+
+  .logo {
+    max-height: 56px;
+  }
+
+  .name {
+    font-size: 0.85rem;
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+    /* allow manual horizontal scroll instead */
+  }
+
+  .marquee {
+    overflow-x: auto;
+  }
+}

@@ -1,0 +1,135 @@
+/* ============================ PAGE ============================ */
+.teamPageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #0a0a0f;
+  color: var(--textLight);
+}
+
+.committeePageContainer {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1180px;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* SEO/intro copy shown below the hero heading, above the committee grid.
+   Centered, muted body text - blends with the existing dark page, no redesign. */
+.intro {
+  max-width: 760px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.66);
+}
+
+/* ============================= GRID ============================= */
+.committeeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* ============================== CARD ============================== */
+.committeeCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.75rem 1.25rem;
+  background: #101017;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  text-decoration: none;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.committeeCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(140, 160, 255, 0.3);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+}
+
+.committeeCard:focus-visible {
+  outline: 2px solid #7aa6ff;
+  outline-offset: 2px;
+}
+
+.committeeLogoWrap {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: radial-gradient(
+    circle at center,
+    rgba(120, 140, 220, 0.12),
+    transparent 70%
+  );
+}
+
+/* The logos are square PNGs with transparent padding around the shield, so
+   `contain` shows each one whole and at the same scale - never cropped. */
+.committeeLogo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.committeeName {
+  /* Rendered as an <h2>; reset the UA heading margin so the card layout is
+     unchanged (the class already sets the font-size/weight). */
+  margin: 0;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: #d6dae6;
+}
+
+/* ========================== RESPONSIVE ========================== */
+@media (max-width: 768px) {
+  .committeePageContainer {
+    padding: 1.75rem 1rem 3rem;
+  }
+
+  .committeeGrid {
+    grid-template-columns: repeat(auto-fill, minmax(min(160px, 100%), 1fr));
+    gap: 1rem;
+  }
+
+  .committeeCard {
+    padding: 1.5rem 1rem;
+  }
+
+  .committeeLogoWrap {
+    height: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .committeePageContainer {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .committeeGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .committeeLogoWrap {
+    height: 120px;
+  }
+
+  .committeeName {
+    font-size: 0.9rem;
+  }
+}

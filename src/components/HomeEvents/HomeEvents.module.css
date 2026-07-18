@@ -1,0 +1,244 @@
+/* ============================ SECTION ============================ */
+.eventsSection {
+  box-sizing: border-box;
+  width: 100%;
+  /* Generous top/bottom padding so this section is clearly separated from the
+     ones above and below it. */
+  padding: 3rem 0;
+  background-color: #0a0a0f;
+  font-size: 1.1rem;
+}
+
+.eventsInner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ============================ HEADER ============================ */
+/* Centered, matching every other section heading on the home page. */
+.header {
+  text-align: center;
+  margin-bottom: 2.25rem;
+}
+
+.overline {
+  margin: 0 0 0.5rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #8b7ee6;
+}
+
+.heading {
+  margin: 0;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: #f2f4fa;
+}
+
+/* ============================= GRID ============================= */
+/* Uniform, responsive columns: equal widths, equal gaps. The card's
+   aspect-ratio guarantees every card is the exact same height. */
+.eventsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
+  gap: 1.25rem;
+}
+
+/* ============================== CARD ============================== */
+.card {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  border-radius: 14px;
+  overflow: hidden; /* clips the image + hover scale to the card */
+  background-color: #111118;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px); /* lift only - never resizes the card */
+  border-color: rgba(140, 160, 255, 0.35);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+}
+
+.card:focus-visible {
+  outline: 2px solid #7aa6ff;
+  outline-offset: 2px;
+}
+
+/* Image completely fills the card, keeps aspect ratio, never overflows */
+.cardImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .cardImg {
+  transform: scale(1.05);
+}
+
+/* Lighter overlay - poster stays clearly visible, text stays readable */
+.cardScrim {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    to top,
+    rgba(5, 6, 12, 0.85) 2%,
+    rgba(5, 6, 12, 0.4) 28%,
+    rgba(5, 6, 12, 0) 52%
+  );
+}
+
+/* ============================ CONTENT ============================ */
+.cardBody {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cardTitle {
+  margin: 0;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.25;
+  color: #f4f6fb;
+  /* wrap long titles, clamp to 2 lines with ellipsis */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+.dateLabel {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8ea3ff;
+}
+
+.stateMsg {
+  margin: 2rem 0;
+  text-align: center;
+  color: #aab1c4;
+  font-size: 1rem;
+}
+
+/* ============================ BUTTON ============================ */
+.exploreWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.exploreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.8rem 1.7rem;
+  border-radius: 12px;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  background: #2563eb;
+  box-shadow: 0 10px 26px rgba(37, 99, 235, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.exploreBtn:hover,
+.exploreBtn:focus-visible {
+  transform: translateY(-3px);
+  background: #1d4ed8;
+  box-shadow: 0 14px 32px rgba(37, 99, 235, 0.5);
+  outline: none;
+}
+
+.arrow {
+  transition: transform 0.25s ease;
+}
+
+.exploreBtn:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* =========================== RESPONSIVE =========================== */
+/* Tablet (640–1023px): 2 columns */
+@media (max-width: 1023px) {
+  .eventsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .eventsSection {
+    padding: 2rem 0;
+  }
+
+  .eventsInner {
+    padding: 0 1rem;
+  }
+
+  .header {
+    margin-bottom: 1.75rem;
+  }
+
+  .eventsGrid {
+    gap: 1rem;
+  }
+
+  .cardTitle {
+    font-size: 1.05rem;
+  }
+
+  .cardBody {
+    padding: 0.9rem;
+  }
+}
+
+/* Mobile (≤639px): single column */
+@media (max-width: 639px) {
+  .eventsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .eventsGrid {
+    gap: 0.75rem;
+  }
+
+  .cardTitle {
+    font-size: 0.98rem;
+  }
+
+  .exploreWrap {
+    margin-top: 1.5rem;
+  }
+}

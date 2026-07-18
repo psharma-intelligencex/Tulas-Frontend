@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+.speakersSection {
+  padding: 4rem 0;
+  background: transparent;
+  font-family: "Outfit", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* ===== DESKTOP CAROUSEL ===== */
+.carousel {
+  position: relative;
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  min-height: 500px;
+}
+
+.carouselInner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+  will-change: transform, opacity;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 2;
+}
+
+.slide.prev {
+  opacity: 0;
+  transform: translateX(-100%);
+  z-index: 1;
+}
+
+.slideContent {
+  display: flex;
+  height: 100%;
+  min-height: 500px;
+}
+
+/* ==== FULL IMAGE LEFT SECTION ==== */
+.imageSection {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+.speakerImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
+  max-width: none;
+}
+
+.contentSection {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.speakerName {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 0.5rem 0;
+}
+
+.speakerTitle {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin: 0 0 0.25rem 0;
+}
+
+.speakerCompany {
+  font-size: 1.125rem;
+  color: #718096;
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 1rem;
+  position: relative;
+}
+
+/* Decorative yellow line under the company name */
+.speakerCompany::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 3px;
+  background: #ffa600;
+  border-radius: 2px;
+}
+
+.speakerBio {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #4a5568;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(49, 130, 206, 0.15);
+  color: #3182ce;
+  border: 2px solid rgba(49, 130, 206, 0.3);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+  user-select: none;
+  backdrop-filter: blur(4px);
+}
+
+.navButton:hover:not(:disabled) {
+  background: #3182ce;
+  color: white;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.navButton:active:not(:disabled) {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.navButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.prevButton {
+  left: 20px;
+}
+
+.nextButton {
+  right: 20px;
+}
+
+.indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: #eed6a5;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.indicatorActive {
+  background: #ffa600;
+}
+
+.indicator:hover {
+  background: #ffd000;
+}
+
+/* ===== IPAD PORTRAIT VIEW (768px - 1024px) ===== */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .carousel {
+    min-height: 650px;
+  }
+
+  .slideContent {
+    flex-direction: column;
+    min-height: 600px;
+  }
+
+  .imageSection {
+    flex: none;
+    width: 100%;
+    height: 350px;
+  }
+
+  .contentSection {
+    flex: 1;
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+
+  .speakerName {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .speakerTitle {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .speakerCompany {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+    text-align: center;
+  }
+
+  .speakerCompany::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+  }
+
+  .speakerBio {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .navButton {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  .prevButton {
+    left: 15px;
+  }
+
+  .nextButton {
+    right: 15px;
+  }
+}
+
+/* ===== MOBILE GRID VIEW (≤768px) ===== */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Transform carousel to grid layout */
+  .carousel {
+    position: static;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+    min-height: auto;
+  }
+
+  .carouselInner {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    width: auto;
+    height: auto;
+    background: transparent;
+    padding: 0;
+  }
+
+  /* Reset slide positioning for grid */
+  .slide {
+    position: static;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    z-index: auto;
+    will-change: auto;
+  }
+
+  .slide:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Remove active/prev classes effect on mobile */
+  .slide.active,
+  .slide.prev {
+    position: static;
+    opacity: 1 !important;
+    transform: none !important;
+    z-index: auto;
+  }
+
+  .slide.active:hover,
+  .slide.prev:hover {
+    transform: translateY(-4px);
+  }
+
+  .slideContent {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    height: auto;
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none;
+    border-radius: 12px;
+    background: #ffffff;
+    overflow: hidden;
+  }
+
+  .imageSection {
+    flex: none;
+    width: 100%;
+    height: 300px !important;
+    position: relative;
+  }
+
+  .speakerImage {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    object-fit: cover;
+  }
+
+  .contentSection {
+    flex: 1;
+    padding: 1.5rem;
+    text-align: center;
+    background: #ffffff;
+  }
+
+  .speakerName {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .speakerTitle {
+    font-size: 1rem;
+    margin-bottom: 0.125rem;
+  }
+
+  .speakerCompany {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    text-align: center;
+  }
+
+  .speakerCompany::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+  }
+
+  .speakerBio {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* Hide navigation controls on mobile */
+  .navButton,
+  .indicators {
+    display: none !important;
+  }
+}
+
+/* ===== SMALL MOBILE VIEW (≤480px) ===== */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .carouselInner {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .imageSection {
+    height: 200px;
+  }
+
+  .contentSection {
+    padding: 1rem;
+  }
+
+  .speakerName {
+    font-size: 1.25rem;
+  }
+
+  .speakerTitle {
+    font-size: 0.9rem;
+  }
+
+  .speakerCompany {
+    font-size: 0.8rem;
+  }
+
+  .speakerBio {
+    font-size: 0.85rem;
+  }
+}
