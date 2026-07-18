@@ -29,22 +29,22 @@ const socialLinks = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/company/upescsa/",
+    href: "https://www.linkedin.com/",
     icon: "/icons/linkedin.png",
   },
   {
     label: "YouTube",
-    href: "https://www.youtube.com/channel/UCOQTG59VV6-1czSs57XAFrA",
+    href: "https://www.youtube.com/",
     icon: "/icons/youtube.png",
   },
   {
     label: "Facebook",
-    href: "https://www.facebook.com/upescsa/",
+    href: "https://www.facebook.com/",
     icon: "/icons/facebook.png",
   },
   {
     label: "Twitter",
-    href: "https://twitter.com/upescsa",
+    href: "https://twitter.com/",
     icon: "/icons/twitterx.png",
   },
 ];
@@ -67,7 +67,12 @@ const Contact = () => {
                   rel="noreferrer"
                   aria-label={s.label}
                 >
-                  <img src={s.icon} alt={s.label} loading="lazy" decoding="async" />
+                  <img
+                    src={s.icon}
+                    alt={s.label}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </a>
               ))}
             </div>

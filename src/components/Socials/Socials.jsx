@@ -13,32 +13,32 @@ const socials = [
   },
 
   {
-    link: "https://www.linkedin.com/company/upescsa/",
+    link: "https://www.linkedin.com/",
     image: "/icons/linkedin.png",
     alt: "linkedin",
   },
   {
-    link: "https://www.youtube.com/channel/UCOQTG59VV6-1czSs57XAFrA",
+    link: "https://www.youtube.com/",
     image: "/icons/youtube.png",
     alt: "youtube",
   },
   {
-    link: "https://www.facebook.com/upescsa/",
+    link: "https://www.facebook.com/",
     image: "/icons/facebook.png",
     alt: "facebook",
   },
   {
-    link: "https://twitter.com/upescsa",
+    link: "https://twitter.com/",
     image: "/icons/twitterx.png",
     alt: "twitterx",
   },
   {
-    link: "https://www.linkedin.com/company/upes-socs/",
+    link: "https://www.linkedin.com/",
     image: "/icons/linkedin.png",
     alt: "linkedinUPES",
   },
   {
-    link: "https://www.instagram.com/upes_schoolofcomputerscience/?hl=en",
+    link: "https://www.instagram.com/",
     image: "/icons/instagram.png",
     alt: "instagramUPES",
   },
