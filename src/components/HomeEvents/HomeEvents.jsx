@@ -38,7 +38,7 @@ const HomeEvents = () => {
     <section className={eventsSection} id="events">
       <div className={eventsInner}>
         <div className={header}>
-          <p className={overline}>Upcoming &amp; Past Ventures</p>
+          {/* <p className={overline}>Upcoming &amp; Past Ventures</p> */}
           <h2 className={heading}>Signature Events</h2>
         </div>
 
@@ -47,7 +47,7 @@ const HomeEvents = () => {
             <Link
               key={index}
               className={card}
-              to="/events"
+              // to="/events"
               aria-label={event.eventName}
             >
               <img

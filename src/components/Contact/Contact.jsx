@@ -27,26 +27,26 @@ const socialLinks = [
     href: "https://www.instagram.com/csatulas/?hl=en",
     icon: "/icons/instagram.png",
   },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/",
-    icon: "/icons/linkedin.png",
-  },
-  {
-    label: "YouTube",
-    href: "https://www.youtube.com/",
-    icon: "/icons/youtube.png",
-  },
-  {
-    label: "Facebook",
-    href: "https://www.facebook.com/",
-    icon: "/icons/facebook.png",
-  },
-  {
-    label: "Twitter",
-    href: "https://twitter.com/",
-    icon: "/icons/twitterx.png",
-  },
+  // {
+  //   label: "LinkedIn",
+  //   href: "https://www.linkedin.com/",
+  //   icon: "/icons/linkedin.png",
+  // },
+  // {
+  //   label: "YouTube",
+  //   href: "https://www.youtube.com/",
+  //   icon: "/icons/youtube.png",
+  // },
+  // {
+  //   label: "Facebook",
+  //   href: "https://www.facebook.com/",
+  //   icon: "/icons/facebook.png",
+  // },
+  // {
+  //   label: "Twitter",
+  //   href: "https://twitter.com/",
+  //   icon: "/icons/twitterx.png",
+  // },
 ];
 
 const Contact = () => {

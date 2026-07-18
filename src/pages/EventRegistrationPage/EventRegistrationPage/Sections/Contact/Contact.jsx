@@ -27,7 +27,7 @@ const Contact = () => {
           <Socials orientation="row" gap="1rem" />
         </div>
         <div className={logoDiv}>
-          <Logo src="/logo/upescsa.png" />
+          <Logo src="/logo/tulascsa.png" />
           <Logo className={EcellLogo} src="/logo/ECellLogo.png" />
         </div>
         <div className={contactInfoDiv}>
@@ -38,10 +38,10 @@ const Contact = () => {
               src="/icons/location.png"
               alt="location"
             />
-            <p className={contactFieldInfo}>
+            {/* <p className={contactFieldInfo}>
               SOCS, University of <br /> Petroleum & Energy <br /> Studies,
               Dehradun
-            </p>
+            </p> */}
           </div>
           <div className={contactField}>
             <img
@@ -61,7 +61,7 @@ const Contact = () => {
               src="/icons/email.png"
               alt="email"
             />
-            <p className={contactFieldInfo}>support@upescsa.in</p>
+            <p className={contactFieldInfo}>support@tulascsa.in</p>
           </div>
         </div>
       </div>
