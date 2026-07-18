@@ -24,7 +24,7 @@ const events = [
   {
     eventName: "MoU Singing",
     eventYear: "2026",
-    imageURL: "/events/IMG_0143.JPG",
+    imageURL: "/events/IMG_0061.JPG",
   },
   {
     eventName: "Ethical HAcking",
@@ -47,7 +47,7 @@ const HomeEvents = () => {
             <Link
               key={index}
               className={card}
-              // to="/events"
+              to="/events"
               aria-label={event.eventName}
             >
               <img

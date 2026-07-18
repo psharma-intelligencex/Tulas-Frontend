@@ -21,10 +21,45 @@ const {
 // STATIC EVENTS DATA
 const EVENTS = {
   2026: [
+    // {
+    //   eventName: "Ethical Hacking",
+    //   imageURL: "/events/ethicalhacking.jpeg",
+    // },
     {
-      eventName: "Ethical Hacking",
-      imageURL: "/events/ethicalhacking.jpeg",
+      eventName: "",
+      imageURL: "/events/IMG_0035.JPG",
     },
+    
+    {
+      eventName: "",
+      imageURL: "/events/IMG_0074.JPG",
+    },
+    {
+      eventName: "",
+      imageURL: "/events/IMG_0002.JPG",
+    },
+    
+    {
+      eventName: "",
+      imageURL: "/events/IMG_0042.JPG",
+    },
+    {
+      eventName: "",
+      imageURL: "/events/IMG_0004.JPG",
+    },
+    {
+      eventName: "",
+      imageURL: "/events/IMG_0146.JPG",
+    },
+    {
+      eventName: "",
+      imageURL: "/events/IMG_0135.JPG",
+    },
+    {
+      eventName: "",
+      imageURL: "/events/IMG_0050.JPG",
+    },
+    
     
   ],
 
