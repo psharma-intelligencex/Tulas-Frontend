@@ -47,7 +47,7 @@ const HomeEvents = () => {
             <Link
               key={index}
               className={card}
-              to="/events"
+              // to="/events"
               aria-label={event.eventName}
             >
               <img
