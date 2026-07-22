@@ -121,85 +121,93 @@ export const TEAM = [
   //   ],
   // },
   {
-    label: "Student Team",
-    members: [
-      {
-        name: "Abhishek Kumar",
-        position: "Technical Head",
-        image: "/team/abhishekkumarth.webp",
-      },
-      {
-        name: "Ayush",
-        position: "Technical Head",
-        image: "/team/ayushth.webp",
-      },
-      {
-        name: "Mukul Anand",
-        position: "Treasurer",
-        image: "/team/mukulanandt.webp",
-      },
-      {
-        name: "Parth Kashyap",
-        position: "Secretary",
-        image: "/team/parthkashyaps.webp",
-      },
-      {
-        name: "Prabhat Kumar",
-        position: "Content Writing Head",
-        image: "/team/prabhatkumarcwh.webp",
-      },
-      {
-        name: "Prince Rajput",
-        position: "PR",
-        image: "/team/princerajputpr.webp",
-      },
-      {
-        name: "Ravi Kumar Singh",
-        position: "Technical Head",
-        image: "/team/ravikumarsinghth.webp",
-      },
-      {
-        name: "Rudra Pratap Singh",
-        position: "Social Media Head",
-        image: "/team/rudrapratapsinghsmh.webp",
-      },
-      {
-        name: "Saket Kumar",
-        position: "Social Media Head",
-        image: "/team/saketkumarsmh.webp",
-      },
-      {
-        name: "Santosh Singh",
-        position: "VP",
-        image: "/team/santoshsinghvp.webp",
-      },
-      {
-        name: "Sarvesh Vishwakarma",
-        position: "Technical Head",
-        image: "/team/sarveshvishwakarmath.webp",
-      },
-      {
-        name: "Shashank Jha",
-        position: "PR",
-        image: "/team/shashankjhapr.webp",
-      },
-      {
-        name: "Sonali Kumari",
-        position: "Social Media Head",
-        image: "/team/sonalikumarismh.webp",
-      },
-      {
-        name: "Tanvir Ansari",
-        position: "Content Writing Head",
-        image: "/team/tanviransaricwh.webp",
-      },
-      {
-        name: "Yashvardhan Singh",
-        position: "AVP",
-        image: "/team/yashvardhansinghavp.webp",
-      },
-    ],
-  },
+  label: "Student Team",
+  members: [
+    {
+      name: "Santosh Singh",
+      position: "VP",
+      image: "/team/santoshsinghvp.webp",
+    },
+    {
+      name: "Yashvardhan Singh",
+      position: "AVP",
+      image: "/team/yashvardhansinghavp.webp",
+    },
+    {
+      name: "Parth Kashyap",
+      position: "Secretary",
+      image: "/team/parthkashyaps.webp",
+    },
+    {
+      name: "Mukul Anand",
+      position: "Treasurer",
+      image: "/team/mukulanandt.webp",
+    },
+
+    // Technical Heads
+    {
+      name: "Abhishek Kumar",
+      position: "Technical Head",
+      image: "/team/abhishekkumarth.webp",
+    },
+    {
+      name: "Ayush",
+      position: "Technical Head",
+      image: "/team/ayushth.webp",
+    },
+    {
+      name: "Ravi Kumar Singh",
+      position: "Technical Head",
+      image: "/team/ravikumarsinghth.webp",
+    },
+    {
+      name: "Sarvesh Vishwakarma",
+      position: "Technical Head",
+      image: "/team/sarveshvishwakarmath.webp",
+    },
+
+    // Content Writing Heads
+    {
+      name: "Prabhat Kumar",
+      position: "Content Writing Head",
+      image: "/team/prabhatkumarcwh.webp",
+    },
+    {
+      name: "Tanvir Ansari",
+      position: "Content Writing Head",
+      image: "/team/tanviransaricwh.webp",
+    },
+
+    // Social Media Heads
+    {
+      name: "Rudra Pratap Singh",
+      position: "Social Media Head",
+      image: "/team/rudrapratapsinghsmh.webp",
+    },
+    {
+      name: "Saket Kumar",
+      position: "Social Media Head",
+      image: "/team/saketkumarsmh.webp",
+    },
+    {
+      name: "Sonali Kumari",
+      position: "Social Media Head",
+      image: "/team/sonalikumarismh.webp",
+    },
+
+    // PR
+    {
+      name: "Prince Rajput",
+      position: "PR",
+      image: "/team/princerajputpr.webp",
+    },
+    {
+      name: "Shashank Jha",
+      position: "PR",
+      image: "/team/shashankjhapr.webp",
+    },
+  ],
+},
   // {
   //   label: "Associate Heads",
   //   members: [

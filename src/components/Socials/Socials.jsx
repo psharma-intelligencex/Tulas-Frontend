@@ -28,12 +28,12 @@ const socials = [
     alt: "facebook",
   },
   {
-    link: "https://twitter.com/",
+    link: "https://x.com/csatulas",
     image: "/icons/twitterx.png",
     alt: "twitterx",
   },
   {
-    link: "https://www.linkedin.com/",
+    link: "https://www.linkedin.com/company/csatulas//",
     image: "/icons/linkedin.png",
     alt: "linkedinUPES",
   },

@@ -27,11 +27,11 @@ const socialLinks = [
     href: "https://www.instagram.com/csatulas/?hl=en",
     icon: "/icons/instagram.png",
   },
-  // {
-  //   label: "LinkedIn",
-  //   href: "https://www.linkedin.com/",
-  //   icon: "/icons/linkedin.png",
-  // },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/csatulas/",
+    icon: "/icons/linkedin.png",
+  },
   // {
   //   label: "YouTube",
   //   href: "https://www.youtube.com/",
@@ -42,11 +42,11 @@ const socialLinks = [
   //   href: "https://www.facebook.com/",
   //   icon: "/icons/facebook.png",
   // },
-  // {
-  //   label: "Twitter",
-  //   href: "https://twitter.com/",
-  //   icon: "/icons/twitterx.png",
-  // },
+  {
+    label: "Twitter",
+    href: "https://x.com/csatulas",
+    icon: "/icons/twitterx.png",
+  },
 ];
 
 const Contact = () => {
