@@ -30,7 +30,7 @@ const blogs = [
     summary:
       "By using the AI-based security analysis, researchers have discovered a privilege escalation vulnerability in the Linux operating system that had gone unnoticed for almost 15 years.",
     author: "Santosh Singh",
-    image: "/img/blogs/m22.png",
+    image: "/img/blogs/m22.webp",
     url: "https://medium.com/@santoshnegi1800/ai-uncovers-a-15-year-old-linux-root-bug-pentagon-expands-hacker-program-global-privacy-debates-1f2c806fb0ac",
   },
   {

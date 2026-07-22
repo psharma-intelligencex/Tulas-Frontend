@@ -28,7 +28,7 @@ const blogs = [
     summary:
       "Data protection is the way how to protect information by using various measures, technologies, policies and procedures to keep data in a safe place and from the access of unauthorized people.",
     author: "Santosh Singh",
-    image: "/img/blogs/m11.png",
+    image: "/img/blogs/m11.webp",
     url: "https://medium.com/@santoshnegi1800/data-protection-why-protecting-personal-information-is-essential-in-the-digital-age-839654cb4e13",
   },
   {
@@ -36,7 +36,7 @@ const blogs = [
     summary:
       "Data privacy is concerned with how our data is collected, used, stored, shared, and protected. More importantly, data privacy can be understood as providing individuals better visibility into their data.",
     author: "Santosh Singh",
-    image: "/img/blogs/m44.png",
+    image: "/img/blogs/m44.webp",
     url: "https://medium.com/@santoshnegi1800/data-privacy-why-protecting-your-personal-information-matters-more-than-ever-c5cdc5a7cbc0",
   },
   {
@@ -44,7 +44,7 @@ const blogs = [
     summary:
       "By using the AI-based security analysis, researchers have discovered a privilege escalation vulnerability in the Linux operating system that had gone unnoticed for almost 15 years.",
     author: "Santosh Singh",
-    image: "/img/blogs/m22.png",
+    image: "/img/blogs/m22.webp",
     url: "https://medium.com/@santoshnegi1800/ai-uncovers-a-15-year-old-linux-root-bug-pentagon-expands-hacker-program-global-privacy-debates-1f2c806fb0ac",
   },
   {
@@ -52,7 +52,7 @@ const blogs = [
     summary:
       "Understanding CVE-2026–48939 , this kind of thing usually pops up when a site has that file upload feature. You know, in web apps it’s one of the most abused parts, because if developers didn’t add proper checks, it can quietly become a backdoor. ",
     author: "Santosh Singh",
-    image: "/img/blogs/m33.png",
+    image: "/img/blogs/m33.webp",
     url: "https://medium.com/@santoshnegi1800/understanding-cve-2026-48939-a-critical-file-upload-vulnerability-in-joomlas-icagenda-extension-bfaad2584727",
   },
   {
@@ -60,7 +60,7 @@ const blogs = [
     summary:
       "Research conducted by cybersecurity experts has shown that security issues regarding some packages involving Jscrambler have occurred.",
     author: "Santosh Singh",
-    image: "/img/blogs/jscrambler.png",
+    image: "/img/blogs/jscrambler.webp",
     url: "https://san0101.hashnode.dev/when-trusted-packages-turn-against-you-the-jscrambler-supply-chain-incident-explained",
   },
   {
@@ -68,7 +68,7 @@ const blogs = [
     summary:
       "The AI-powered worm does not stick to the given algorithms but analyzes the environment, identifies the possible ways of spreading malware, and modifies its behavior according to the data it has.",
     author: "Santosh Singh",
-    image: "/img/blogs/autonomous_worm.png",
+    image: "/img/blogs/autonomous_worm.webp",
     url: "https://san0101.hashnode.dev/the-rise-of-autonomous-worms-when-malware-starts-thinking-for-itself",
   },
   {
