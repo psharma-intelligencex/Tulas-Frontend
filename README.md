@@ -1,9 +1,6 @@
 # UPES Cloud Security Alliance - Frontend Repository
 
-
 Welcome to the frontend repository of UPES Cloud Security Alliance built using React. This repository houses the codebase for the user interface of our application. We encourage contributions from the community to enhance and improve the frontend.
-
-
 
 ## Table of Contents
 
