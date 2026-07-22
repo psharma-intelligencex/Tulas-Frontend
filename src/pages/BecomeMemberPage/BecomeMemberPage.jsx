@@ -17,11 +17,11 @@ const {
   required,
   input,
   select,
-  placeholderOption,
   errorText,
   inputError,
   submitRow,
   submitBtn,
+  submitBtnLabel,
   submitError: submitErrorClass,
   popupOverlay,
   popupCard,
@@ -33,28 +33,166 @@ const {
   comboTrigger,
   comboPlaceholder,
   comboPanel,
-  comboSearch,
-  comboList,
   comboOption,
   comboOptionSelected,
-  comboEmpty,
+  groupList,
+  groupItem,
+  groupTrigger,
+  groupTriggerActive,
+  groupArrow,
+  submenu,
+  submenuOpen,
 } = styles;
 
 // Dropdown options.
 const GENDERS = ["Male", "Female", "Other", "Prefer not to say"];
-const YEARS = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
-const COURSES = [
-  "B.Tech. in Aerospace Engineering",
-  "B.Tech. in Chemical Engineering",
-  "B.Tech. in Fire Safety Engineering",
-  "B.Tech. in Civil Engineering",
-  "B.Tech. in Sustainability Engineering",
-  "B.Tech. in Electrical Engineering",
-  "B.Tech. in Electronics and Computer Engineering",
-  "B.Tech. in VLSI Design and Technology",
-  "B.Tech. in Mechanical Engineering",
-  "B.Tech. in Applied Petroleum Engineering",
+const YEARS = ["1st Year", "2nd Year", "3rd Year", "4th Year", "5th Year"];
+// Courses grouped by degree family. The dropdown shows only the group label
+// (e.g. "B.Tech"); hovering (or tapping) a group reveals its specific courses.
+const COURSE_GROUPS = [
+  {
+    label: "B.Tech",
+    options: [
+      "B.Tech CSE",
+      "B.Tech CSE in AI & ML",
+      "B.Tech CSE in Cyber Security",
+      "B.Tech CSE in Data Science",
+      "B.Tech CSE in Full Stack Development",
+      "B.Tech ECE",
+      "B.Tech EEE",
+      "B.Tech Civil Engineering",
+      "B.Tech Mechanical Engineering",
+    ],
+  },
+  {
+    label: "M.Tech",
+    options: [
+      "M.Tech Computer Science Engineering",
+      "M.Tech Thermal Engineering",
+      "M.Tech Structural Engineering",
+    ],
+  },
+  {
+    label: "Diploma",
+    options: [
+      "Diploma in Civil Engineering",
+      "Diploma in Mechanical Engineering",
+      "Diploma in CSE",
+    ],
+  },
+  {
+    label: "BBA",
+    options: ["BBA", "BBA in Digital Marketing", "BBA in Business Analytics"],
+  },
+  {
+    label: "B.Com",
+    options: [
+      "Bachelor in Commerce (B.Com)",
+      "Bachelor in Commerce (Hons.)",
+    ],
+  },
+  {
+    label: "MBA",
+    options: [
+      "MBA",
+      "MBA in Marketing",
+      "MBA in Human Resource Management",
+      "MBA in International Business",
+      "MBA in Finance",
+      "MBA in Agri-Business Management",
+      "MBA in Digital Marketing",
+      "MBA in Business Analytics",
+    ],
+  },
+  {
+    label: "BCA",
+    options: [
+      "BCA",
+      "BCA in Full Stack Software Development",
+      "BCA in AI & ML",
+    ],
+  },
+  {
+    label: "MCA",
+    options: [
+      "MCA",
+      "MCA in Full Stack Software Development",
+      "MCA in AI & ML",
+    ],
+  },
+  {
+    label: "Journalism & Mass Comm.",
+    options: ["BAJMC", "BA (Hons.) JMC"],
+  },
+  {
+    label: "Pharmacy",
+    options: [
+      "Bachelor in Pharmacy (B.Pharma)",
+      "Diploma in Pharmacy (D.Pharma)",
+    ],
+  },
+  {
+    label: "Law",
+    options: [
+      "LL.B (Bachelor of Legislative Law)",
+      "B.B.A LL.B (Hons.)",
+      "B.A LL.B (Hons.)",
+    ],
+  },
+  {
+    label: "Agriculture",
+    options: ["B.Sc.(Hons.) Agriculture", "M.Sc. Agronomy"],
+  },
 ];
+
+// Duration (in years) of each course. Drives the "Year of Study" options - a
+// course only offers years up to its duration (e.g. a 2-year MCA shows only
+// 1st/2nd Year). Keys must match the course strings in COURSE_GROUPS exactly.
+const COURSE_DURATIONS = {
+  "B.Tech CSE": 4,
+  "B.Tech CSE in AI & ML": 4,
+  "B.Tech CSE in Cyber Security": 4,
+  "B.Tech CSE in Data Science": 4,
+  "B.Tech CSE in Full Stack Development": 4,
+  "B.Tech ECE": 4,
+  "B.Tech EEE": 4,
+  "B.Tech Civil Engineering": 4,
+  "B.Tech Mechanical Engineering": 4,
+  "M.Tech Computer Science Engineering": 2,
+  "M.Tech Thermal Engineering": 2,
+  "M.Tech Structural Engineering": 2,
+  "Diploma in Civil Engineering": 3,
+  "Diploma in Mechanical Engineering": 3,
+  "Diploma in CSE": 3,
+  BBA: 3,
+  "BBA in Digital Marketing": 3,
+  "BBA in Business Analytics": 3,
+  "Bachelor in Commerce (B.Com)": 3,
+  "Bachelor in Commerce (Hons.)": 4,
+  MBA: 2,
+  "MBA in Marketing": 2,
+  "MBA in Human Resource Management": 2,
+  "MBA in International Business": 2,
+  "MBA in Finance": 2,
+  "MBA in Agri-Business Management": 2,
+  "MBA in Digital Marketing": 2,
+  "MBA in Business Analytics": 2,
+  BCA: 3,
+  "BCA in Full Stack Software Development": 3,
+  "BCA in AI & ML": 3,
+  MCA: 2,
+  "MCA in Full Stack Software Development": 2,
+  "MCA in AI & ML": 2,
+  BAJMC: 3,
+  "BA (Hons.) JMC": 4,
+  "Bachelor in Pharmacy (B.Pharma)": 4,
+  "Diploma in Pharmacy (D.Pharma)": 2,
+  "LL.B (Bachelor of Legislative Law)": 3,
+  "B.B.A LL.B (Hons.)": 5,
+  "B.A LL.B (Hons.)": 5,
+  "B.Sc.(Hons.) Agriculture": 4,
+  "M.Sc. Agronomy": 2,
+};
 
 const COMMITTEES = [
   "Design",
@@ -132,10 +270,156 @@ const SELECT_FIELDS = new Set([
   "committeeTwo",
 ]);
 
-// Searchable single-select dropdown, styled to match the theme's native
-// selects. Defined at module level (not nested) so it isn't remounted on every
-// parent render - which would otherwise close the panel on each keystroke.
-const SearchableSelect = ({
+// Grouped single-select dropdown, styled to match the theme's native selects.
+// The panel lists only the top-level group labels (e.g. "B.Tech"); hovering a
+// group (or tapping it on touch devices) opens a flyout with that group's
+// specific courses. Defined at module level (not nested) so it isn't remounted
+// on every parent render - which would otherwise close the panel mid-interaction.
+const GroupedSelect = ({
+  id,
+  labelText,
+  groups,
+  value,
+  placeholder,
+  error,
+  onSelect,
+}) => {
+  const [open, setOpen] = useState(false);
+  // The group whose flyout submenu is currently expanded (by label).
+  const [openGroup, setOpenGroup] = useState(null);
+  const wrapRef = useRef(null);
+
+  // Close on outside click while open.
+  useEffect(() => {
+    if (!open) return undefined;
+    const onDocMouseDown = (event) => {
+      if (wrapRef.current && !wrapRef.current.contains(event.target)) {
+        setOpen(false);
+        setOpenGroup(null);
+      }
+    };
+    document.addEventListener("mousedown", onDocMouseDown);
+    return () => document.removeEventListener("mousedown", onDocMouseDown);
+  }, [open]);
+
+  const choose = (option) => {
+    onSelect(option);
+    setOpen(false);
+    setOpenGroup(null);
+  };
+
+  return (
+    <div className={field}>
+      <label className={label} htmlFor={id}>
+        {labelText} <span className={required}>*</span>
+      </label>
+      <div className={comboWrap} ref={wrapRef}>
+        <button
+          type="button"
+          id={id}
+          className={
+            error
+              ? `${select} ${comboTrigger} ${inputError}`
+              : `${select} ${comboTrigger}`
+          }
+          onClick={() => setOpen((prev) => !prev)}
+          aria-haspopup="menu"
+          aria-expanded={open}
+          aria-invalid={error ? "true" : "false"}
+        >
+          <span className={value ? undefined : comboPlaceholder}>
+            {value || placeholder}
+          </span>
+        </button>
+        {open && (
+          <div className={comboPanel}>
+            <ul className={groupList} role="menu">
+              {groups.map((group) => {
+                const groupHasValue = group.options.includes(value);
+                const expanded = openGroup === group.label;
+                return (
+                  <li
+                    key={group.label}
+                    className={groupItem}
+                    onMouseEnter={() => setOpenGroup(group.label)}
+                    onMouseLeave={() =>
+                      setOpenGroup((prev) =>
+                        prev === group.label ? null : prev,
+                      )
+                    }
+                  >
+                    <button
+                      type="button"
+                      className={
+                        groupHasValue
+                          ? `${groupTrigger} ${groupTriggerActive}`
+                          : groupTrigger
+                      }
+                      onClick={() =>
+                        setOpenGroup((prev) =>
+                          prev === group.label ? null : group.label,
+                        )
+                      }
+                      aria-haspopup="menu"
+                      aria-expanded={expanded}
+                    >
+                      <span>{group.label}</span>
+                      <span className={groupArrow} aria-hidden="true">
+                        ›
+                      </span>
+                    </button>
+                    <ul
+                      className={expanded ? `${submenu} ${submenuOpen}` : submenu}
+                      role="menu"
+                    >
+                      {group.options.map((option) => (
+                        <li key={option} role="none">
+                          <button
+                            type="button"
+                            role="menuitem"
+                            className={
+                              value === option
+                                ? `${comboOption} ${comboOptionSelected}`
+                                : comboOption
+                            }
+                            onClick={() => choose(option)}
+                          >
+                            {option}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+      </div>
+      {error && <span className={errorText}>{error}</span>}
+    </div>
+  );
+};
+
+GroupedSelect.propTypes = {
+  id: PropTypes.string.isRequired,
+  labelText: PropTypes.string.isRequired,
+  groups: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      options: PropTypes.arrayOf(PropTypes.string).isRequired,
+    }),
+  ).isRequired,
+  value: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  error: PropTypes.string,
+  onSelect: PropTypes.func.isRequired,
+};
+
+// Flat single-select dropdown sharing the same themed trigger/panel look as
+// GroupedSelect, but for a simple (ungrouped) option list. Replaces the native
+// <select> for gender, year and committee fields so every dropdown matches.
+const PlainSelect = ({
   id,
   labelText,
   options,
@@ -145,7 +429,6 @@ const SearchableSelect = ({
   onSelect,
 }) => {
   const [open, setOpen] = useState(false);
-  const [query, setQuery] = useState("");
   const wrapRef = useRef(null);
 
   // Close on outside click while open.
@@ -159,14 +442,9 @@ const SearchableSelect = ({
     return () => document.removeEventListener("mousedown", onDocMouseDown);
   }, [open]);
 
-  const filtered = options.filter((option) =>
-    option.toLowerCase().includes(query.trim().toLowerCase()),
-  );
-
   const choose = (option) => {
     onSelect(option);
     setOpen(false);
-    setQuery("");
   };
 
   return (
@@ -194,21 +472,11 @@ const SearchableSelect = ({
         </button>
         {open && (
           <div className={comboPanel}>
-            <input
-              className={comboSearch}
-              type="text"
-              autoFocus
-              placeholder="Search course..."
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-            />
-            <ul className={comboList} role="listbox">
-              {filtered.length === 0 ? (
-                <li className={comboEmpty}>No matches found</li>
-              ) : (
-                filtered.map((option) => (
-                  <li
-                    key={option}
+            <ul className={groupList} role="listbox">
+              {options.map((option) => (
+                <li key={option} role="none">
+                  <button
+                    type="button"
                     role="option"
                     aria-selected={value === option}
                     className={
@@ -219,9 +487,9 @@ const SearchableSelect = ({
                     onClick={() => choose(option)}
                   >
                     {option}
-                  </li>
-                ))
-              )}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
         )}
@@ -231,7 +499,7 @@ const SearchableSelect = ({
   );
 };
 
-SearchableSelect.propTypes = {
+PlainSelect.propTypes = {
   id: PropTypes.string.isRequired,
   labelText: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
@@ -288,8 +556,17 @@ const validateField = (name, rawValue, all) => {
     case "course":
       return value ? undefined : "Course is required.";
 
-    case "yearOfStudy":
-      return value ? undefined : "Please select your year.";
+    case "yearOfStudy": {
+      if (!value) return "Please select your year.";
+      // Guard against a year beyond the chosen course's duration (e.g. left
+      // over from a longer course picked earlier).
+      if (all.course) {
+        const maxYears = COURSE_DURATIONS[all.course] || YEARS.length;
+        if (YEARS.indexOf(value) >= maxYears)
+          return "Selected year exceeds the course duration.";
+      }
+      return undefined;
+    }
 
     case "committeeOne":
       return value ? undefined : "Please select a committee preference.";
@@ -361,13 +638,40 @@ const BecomeMemberPage = () => {
     }));
   };
 
-  // Set a value directly (used by the searchable dropdown) and validate it.
+  // Set a value directly (used by the custom dropdowns) and validate it.
   const handleSelectValue = (name, value) => {
     const nextValues = { ...values, [name]: value };
+
+    // Changing the course can shrink the valid year range. If the currently
+    // picked year no longer fits the new course's duration (e.g. "4th Year"
+    // held while switching to a 2-year MCA), clear it so only in-range years
+    // remain selectable.
+    let clearedYear = false;
+    if (name === "course") {
+      const maxYears = COURSE_DURATIONS[value] || YEARS.length;
+      if (YEARS.indexOf(nextValues.yearOfStudy) >= maxYears) {
+        nextValues.yearOfStudy = "";
+        clearedYear = true;
+      }
+    }
+
     setValues(nextValues);
     setErrors((prev) => ({
       ...prev,
       [name]: validateField(name, value, nextValues),
+      // Drop any stale year error when the year was reset - don't flag the
+      // field red until the user re-picks.
+      ...(clearedYear ? { yearOfStudy: undefined } : {}),
+      // Changing preference one can (in)validate preference two.
+      ...(name === "committeeOne" && nextValues.committeeTwo
+        ? {
+            committeeTwo: validateField(
+              "committeeTwo",
+              nextValues.committeeTwo,
+              nextValues,
+            ),
+          }
+        : {}),
     }));
   };
 
@@ -449,32 +753,19 @@ const BecomeMemberPage = () => {
     );
   };
 
-  // Small helper to render a labelled select.
-  const renderSelect = (name, text, options, placeholder) => (
-    <div className={field}>
-      <label className={label} htmlFor={name}>
-        {text} <span className={required}>*</span>
-      </label>
-      <select
-        id={name}
-        name={name}
-        className={errors[name] ? `${select} ${inputError}` : select}
-        value={values[name]}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        aria-invalid={errors[name] ? "true" : "false"}
-      >
-        <option value="" disabled className={placeholderOption}>
-          {placeholder}
-        </option>
-        {options.map((option) => (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        ))}
-      </select>
-      {errors[name] && <span className={errorText}>{errors[name]}</span>}
-    </div>
+  // Year options limited to the selected course's duration. Before a course is
+  // chosen, show the full range.
+  const availableYears = values.course
+    ? YEARS.slice(0, COURSE_DURATIONS[values.course] || YEARS.length)
+    : YEARS;
+
+  // A committee chosen in one preference is hidden from the other so the same
+  // committee can't be picked twice.
+  const committeeOneOptions = COMMITTEES.filter(
+    (committee) => committee !== values.committeeTwo,
+  );
+  const committeeTwoOptions = COMMITTEES.filter(
+    (committee) => committee !== values.committeeOne,
   );
 
   return (
@@ -492,7 +783,15 @@ const BecomeMemberPage = () => {
               "Your full name",
               true,
             )}
-            {renderSelect("gender", "Gender", GENDERS, "Select gender")}
+            <PlainSelect
+              id="gender"
+              labelText="Gender"
+              options={GENDERS}
+              value={values.gender}
+              placeholder="Select gender"
+              error={errors.gender}
+              onSelect={(value) => handleSelectValue("gender", value)}
+            />
             {renderInput(
               "contactNumber",
               "Contact Number",
@@ -509,7 +808,7 @@ const BecomeMemberPage = () => {
               "collegeEmail",
               "College Email ID",
               "email",
-              "name@stu.tulas.ac.in",
+              "name@tulas.edu.in",
             )}
             {renderInput(
               "personalEmail",
@@ -517,28 +816,42 @@ const BecomeMemberPage = () => {
               "email",
               "name@example.com",
             )}
-            <SearchableSelect
+            <GroupedSelect
               id="course"
               labelText="Course"
-              options={COURSES}
+              groups={COURSE_GROUPS}
               value={values.course}
               placeholder="Select course"
               error={errors.course}
               onSelect={(value) => handleSelectValue("course", value)}
             />
-            {renderSelect("yearOfStudy", "Year of Study", YEARS, "Select year")}
-            {renderSelect(
-              "committeeOne",
-              "Committee Preference One",
-              COMMITTEES,
-              "Select a committee",
-            )}
-            {renderSelect(
-              "committeeTwo",
-              "Committee Preference Two",
-              COMMITTEES,
-              "Select a committee",
-            )}
+            <PlainSelect
+              id="yearOfStudy"
+              labelText="Year of Study"
+              options={availableYears}
+              value={values.yearOfStudy}
+              placeholder="Select year"
+              error={errors.yearOfStudy}
+              onSelect={(value) => handleSelectValue("yearOfStudy", value)}
+            />
+            <PlainSelect
+              id="committeeOne"
+              labelText="Committee Preference One"
+              options={committeeOneOptions}
+              value={values.committeeOne}
+              placeholder="Select a committee"
+              error={errors.committeeOne}
+              onSelect={(value) => handleSelectValue("committeeOne", value)}
+            />
+            <PlainSelect
+              id="committeeTwo"
+              labelText="Committee Preference Two"
+              options={committeeTwoOptions}
+              value={values.committeeTwo}
+              placeholder="Select a committee"
+              error={errors.committeeTwo}
+              onSelect={(value) => handleSelectValue("committeeTwo", value)}
+            />
           </div>
 
           {submitError && (
@@ -549,7 +862,9 @@ const BecomeMemberPage = () => {
 
           <div className={submitRow}>
             <button type="submit" className={submitBtn} disabled={submitting}>
-              {submitting ? "Submitting..." : "Submit Application"}
+              <span className={submitBtnLabel}>
+                {submitting ? "Submitting..." : "Submit Application"}
+              </span>
             </button>
           </div>
         </form>

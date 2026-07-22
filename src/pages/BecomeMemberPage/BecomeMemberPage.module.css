@@ -179,46 +179,99 @@
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
 }
 
-.comboSearch {
-  width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 0.4rem;
-  padding: 0.6rem 0.8rem;
-  font-family: "Maven Pro", sans-serif;
-  font-weight: 500;
-  font-size: 0.9rem;
-  color: var(--textLight);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
-  outline: none;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.comboSearch::placeholder {
-  color: #7c8296;
-}
-
-.comboSearch:focus {
-  border-color: #6e8bff;
-  box-shadow: 0 0 0 3px rgba(110, 139, 255, 0.2);
-}
-
-.comboList {
+/* Outer list of top-level group labels (B.Tech, MBA, …). No overflow clipping
+   here so the hover flyouts can extend past the panel edge on desktop. */
+.groupList {
   list-style: none;
   margin: 0;
   padding: 0;
-  max-height: 220px;
-  overflow-y: auto;
 }
 
-.comboOption {
+/* Each group row anchors its own flyout submenu. */
+.groupItem {
+  position: relative;
+}
+
+/* Group label button - a full-width row with the "open" chevron on the right. */
+.groupTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
   padding: 0.6rem 0.8rem;
+  border: none;
   border-radius: 8px;
   font-family: "Maven Pro", sans-serif;
   font-weight: 500;
   font-size: 0.9rem;
+  text-align: left;
   color: #c5cbe0;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.groupTrigger:hover {
+  background: rgba(110, 139, 255, 0.15);
+  color: var(--textLight);
+}
+
+/* Highlights the group that holds the currently selected course. */
+.groupTriggerActive {
+  background: rgba(110, 139, 255, 0.22);
+  color: var(--textLight);
+}
+
+.groupArrow {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: #7c8296;
+}
+
+/* Flyout submenu of specific courses, revealed on hover/tap. Positioned to the
+   right of its group on desktop; collapses inline on narrow screens. */
+.submenu {
+  display: none;
+  position: absolute;
+  top: -0.5rem;
+  /* Sits flush against the group row (no empty gap) so the pointer never
+     leaves the hoverable group item while travelling to a course - the gap
+     is bridged by transparent left padding instead. */
+  left: 100%;
+  z-index: 30;
+  min-width: 230px;
+  max-height: 280px;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem 0.4rem 0.4rem 0.8rem;
+  background-clip: padding-box;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: #11141f;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.submenuOpen {
+  display: block;
+}
+
+.comboOption {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.55rem 0.8rem;
+  border: none;
+  border-radius: 8px;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: 500;
+  font-size: 0.88rem;
+  text-align: left;
+  color: #c5cbe0;
+  background: transparent;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
 }
@@ -233,11 +286,17 @@
   color: var(--textLight);
 }
 
-.comboEmpty {
-  padding: 0.6rem 0.8rem;
-  font-family: "Maven Pro", sans-serif;
-  font-size: 0.85rem;
-  color: #7c8296;
+/* On narrow screens a right-side flyout would overflow the card, so the
+   submenu drops inline beneath its group label as an accordion instead. */
+@media (max-width: 640px) {
+  .submenu {
+    position: static;
+    min-width: 0;
+    max-height: none;
+    margin: 0.15rem 0 0.25rem 0.75rem;
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.03);
+  }
 }
 
 .errorText {
@@ -390,6 +449,8 @@
 }
 
 .submitBtn {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -408,16 +469,54 @@
   border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
   transition: transform 0.25s ease, box-shadow 0.25s ease,
-    background 0.25s ease, border-color 0.25s ease;
+    border-color 0.25s ease;
+}
+
+/* Hover fill: a solid #00539f overlay that sweeps in from the bottom. Scaling a
+   bottom-anchored layer keeps the animation to the GPU (transform only). The
+   label sits above it via .submitBtnLabel's z-index. */
+.submitBtn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: #00539f;
+  transform: scaleY(0);
+  transform-origin: center bottom;
+  transition: transform 0.35s ease;
+  pointer-events: none;
+}
+
+.submitBtn:hover::before,
+.submitBtn:focus-visible::before {
+  transform: scaleY(1);
+}
+
+.submitBtnLabel {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
 }
 
 .submitBtn:hover,
 .submitBtn:focus-visible {
   transform: translateY(-3px);
-  background: #10141e;
-  border-color: rgba(255, 255, 255, 0.28);
+  border-color: rgba(0, 83, 159, 0.9);
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
   outline: none;
+}
+
+/* No fill sweep while the submit is in flight (button is disabled). */
+.submitBtn:disabled::before {
+  transform: scaleY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .submitBtn::before {
+    transition: none;
+  }
 }
 
 /* While the POST is in flight. */
